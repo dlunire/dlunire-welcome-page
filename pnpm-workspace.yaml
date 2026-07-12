@@ -1,2 +1,4 @@
 allowBuilds:
-  '@parcel/watcher': set this to true or false
+  '@parcel/watcher': false
+minimumReleaseAgeExclude:
+  - '@dlunire/front-dlroute@2.2.0 || 2.2.1'

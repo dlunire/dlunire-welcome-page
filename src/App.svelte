@@ -1,14 +1,28 @@
 <script lang="ts">
-    import * as routing from "@dlunire/front-dlroute";
-    import Welcome from "./layouts/Svelte/Welcome.svelte";
-    import type { Component } from "svelte";
+    import { type Component } from "svelte";
+    import { init, type Dispatch } from "./Routes/routes";
+    import Header from "./layouts/Components/Headers/Header.svelte";
+    import Footer from "./layouts/Footers/Footer.svelte";
+    import Content from "./layouts/Sections/Content.svelte";
+    import { asset } from "@dlunire/front-dlroute";
 
-    routing.route("/welcome", Welcome);
-    const dispath = routing.dispatch();
+    let dispatch: Dispatch = init();
 
-    const component: Component | null = dispath.component as Component | null;
+    addEventListener("popstate", function () {
+        dispatch = init();
+    });
+
+    const test: string = asset("/materiales.png");
+
+    console.log({ test });
 </script>
 
-{#if dispath.validated}
-    <svelte:component this={component} />
+{#if dispatch.validated.validated}
+    <Header />
+    <Content>
+        <svelte:component this={dispatch.component as Component} />
+    </Content>
+    <Footer />
+{:else}
+    <svelte:component this={dispatch.component as Component} />
 {/if}

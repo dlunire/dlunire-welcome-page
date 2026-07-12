@@ -1,0 +1,174 @@
+@use "sass:color";
+@use "./vars" as *;
+
+.dl-not-found {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+    user-select: none;
+
+    @media screen and (prefers-color-scheme: dark) {
+        background-color: $dark-color-theme; // El fondo oscuro profundo de tu mockup
+        color: white;
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        background-color: $light-color-theme;
+        color: $dark-color-theme;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 640px;
+        width: 100%;
+    }
+
+    &__tag {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #22c55e; // Verde acento de DLUnire
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    &__title {
+        font-size: 42px;
+        font-weight: 800;
+        margin: 0 0 16px 0;
+        font: {
+            family: "Roboto Condensed", "Roboto", "Open Sans", sans-serif, arial;
+        }
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0 0 32px 0;
+        opacity: 0.7;
+    }
+
+    // Bloque de consola (Copia exacta de las cajas de tu documentación)
+    &__console {
+        width: 100%;
+        background-color: #0e2126;
+        border: 1px solid #141c20;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: left;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        monospace;
+        margin-bottom: 40px;
+        color: white;
+
+        @media screen and (prefers-color-scheme: dark) {
+            background-color: #030708;
+        }
+    }
+
+    &__console-header {
+        background-color: #192d37;
+        padding: 10px 16px;
+        border-bottom: 1px solid #141c20;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        @media screen and (prefers-color-scheme: dark) {
+            background-color: #0e191e;
+        }
+    }
+
+    &__console-title {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: white;
+    }
+
+    &__console-body {
+        padding: 18px 20px;
+        margin: 0;
+    }
+
+    &__code-line {
+        margin: 0 0 8px 0;
+        font-size: 13px;
+        line-height: 1.5;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Resaltado de sintaxis estática (.env.type style)
+    &__code-key {
+        color: #93c5fd; // Azul suave para variables
+    }
+
+    &__code-type {
+        color: #22c55e; // Verde para los tipos estáticos
+    }
+
+    &__string {
+        color: #fca5a5; // Naranja/rojo suave para cadenas
+    }
+
+    &__boolean {
+        color: #fcd34d; // Amarillo para booleanos/números (como tu 3800)
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+    }
+
+    // Botón con el estilo redondeado y sobrio del Navbar
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #111827;
+        color: #ffffff;
+        border: 1px solid #1f2937;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease;
+
+        &:hover {
+            background-color: #1f2937;
+            border-color: #374151;
+        }
+    }
+
+    &__button-icon {
+        flex-shrink: 0;
+        color: #9ca3af;
+    }
+}
+
+@supports (height: 100dvh) {
+    .dl-not-found {
+        height: 100dvh;
+    }
+}

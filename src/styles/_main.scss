@@ -1,0 +1,27 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+
+    --nav-height: 50px;
+    --nav-radius: calc(var(--nav-height) / 2);
+
+    &__nav {
+        
+        flex-grow: 1;
+        max-width: var(--max-width, 1200px);
+        border: 1px solid;
+        height: var(--nav-height);
+        border-radius: var(--nav-radius);
+        padding-left: var(--nav-radius);
+        padding-right: var(--nav-radius);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}   
