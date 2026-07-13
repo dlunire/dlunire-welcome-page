@@ -1,0 +1,47 @@
+.section {
+    padding: 40px 15px;
+    display: flex;
+    justify-content: center;
+
+    &--hero {
+        background-image: radial-gradient(
+            rgba(0, 255, 55, 0.103),
+            transparent 50%
+        );
+        background-size: 100% 100%;
+        background-position-x: left;
+        background-repeat: no-repeat;
+    }
+
+    &,
+    &__inner {
+        position: relative;
+    }
+
+    &__inner {
+        flex-grow: 1;
+        max-width: var(--max-width, 1200px);
+    }
+
+    &__title {
+        align-items: center;
+        gap: 5px;
+
+        &,
+        span {
+            display: flex;
+        }
+
+        &--hero {
+            font: {
+                size: 3rem;
+            }
+
+            span {
+                &:first-of-type {
+                    color: green;
+                }
+            }
+        }
+    }
+}
