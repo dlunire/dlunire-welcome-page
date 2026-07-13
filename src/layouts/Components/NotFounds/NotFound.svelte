@@ -1,7 +1,6 @@
 <script lang="ts">
     import { getBaseURL } from "@dlunire/front-dlroute";
-
-    const baseUrl = getBaseURL() || "/";
+    import Link from "../Links/Link.svelte";
 </script>
 
 <div class="dl-not-found">
@@ -39,24 +38,27 @@
 
         <!-- Botón de acción con el estilo del Navbar -->
         <div class="dl-not-found__actions">
-            <a href={baseUrl} class="dl-not-found__button">
-                <svg
-                    class="dl-not-found__button-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path d="m12 19-7-7 7-7" />
-                    <path d="M19 12H5" />
-                </svg>
-                Volver al inicio
-            </a>
+            <Link href="/" className="dl-not-found__button">
+                {#snippet content()}
+                    <svg
+                        class="dl-not-found__button-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+
+                    <span>Volver al inicio</span>
+                {/snippet}
+            </Link>
         </div>
     </div>
 </div>

@@ -16,16 +16,6 @@
         sans-serif;
     user-select: none;
 
-    @media screen and (prefers-color-scheme: dark) {
-        background-color: $dark-color-theme; // El fondo oscuro profundo de tu mockup
-        color: white;
-    }
-
-    @media screen and (prefers-color-scheme: light) {
-        background-color: $light-color-theme;
-        color: $dark-color-theme;
-    }
-
     &__container {
         display: flex;
         flex-direction: column;

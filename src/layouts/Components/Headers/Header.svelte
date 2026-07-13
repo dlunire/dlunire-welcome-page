@@ -2,6 +2,6 @@
     import Navbar from "./Navbar.svelte";
 </script>
 
-<header class="header">
+<header class="header" id="home">
     <Navbar />
 </header>

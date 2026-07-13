@@ -1,6 +1,6 @@
 import * as engine from "@dlunire/front-dlroute";
-import Header from "../layouts/Components/Headers/Header.svelte";
 import NotFound from "../layouts/Components/NotFounds/NotFound.svelte";
+import Content from "../layouts/Sections/Content.svelte";
 
 export type Dispatch = engine.Dispatch;
 
@@ -8,7 +8,7 @@ export type Dispatch = engine.Dispatch;
  * Registra las rutas de la aplicación.
  */
 function registerRoute(): void {
-    engine.route("/", Header);
+    engine.route("/", Content);
 }
 
 /**
