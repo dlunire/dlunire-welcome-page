@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "./vars" as *;
 
 .header {
@@ -14,7 +15,6 @@
     --nav-radius: calc(var(--nav-height) / 2);
 
     &__nav {
-
         flex-grow: 1;
         max-width: var(--max-width, 1200px);
         height: var(--nav-height);
@@ -88,6 +88,10 @@
         }
     }
 
+    &__text {
+        line-height: 1.2;
+    }
+
     &__title {
         margin: 0;
         display: flex;
@@ -110,6 +114,341 @@
 
         font: {
             size: 0.7rem;
+        }
+    }
+}
+
+.snippet {
+    flex-grow: 1;
+    max-width: var(--icon-height, 450px);
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: linear-gradient(
+        50deg,
+        $dark-color-theme,
+        rgba($dark-color-theme, 0.5)
+    );
+    padding: 20px 20px;
+    position: relative;
+    border-left: 1px solid rgba(white, 0.1);
+    border-right: 1px solid rgba(white, 0.1);
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-image: linear-gradient(90deg, orange, green);
+    }
+
+    &::before {
+        top: 0;
+        bottom: auto;
+    }
+
+    &::after {
+        top: auto;
+        bottom: 0;
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        background-image: none;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(black, 0.13);
+        border: 1px solid rgba(black, 0.1);
+
+        &::before,
+        &::after {
+            height: 6px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__body {
+        &-code {
+            position: relative;
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        transition: 300ms ease;
+
+        --icon-color: #{rgba(white, 0.3)};
+        --icon-size: 15px;
+
+        --icon-width: var(--icon-size);
+        --icon-height: var(--icon-size);
+
+        &:active {
+            transition: none;
+        }
+
+        &--copy {
+            position: absolute;
+            margin: auto;
+            left: auto;
+            top: 0;
+            bottom: 0;
+            right: 2px;
+            border-radius: 0 4px 4px 0;
+            width: calc(var(--padding-left) + 10px);
+            border-left: 1px solid rgba(green, 0.3);
+            height: var(--button-height, 30px);
+            outline: 1px solid transparent;
+
+            &:focus {
+                outline: 1px solid transparent;
+            }
+
+            &:hover {
+                background-color: rgba(white, 0.02);
+                --icon-color: #{rgba(white, 0.6)};
+            }
+
+            &,
+            &:active {
+                background-color: transparent;
+            }
+
+            &:active {
+                --icon-color: #{rgba(white, 0.9)};
+                path {
+                    transition: none;
+                }
+            }
+
+            @media screen and (prefers-color-scheme: light) {
+                &:hover {
+                    --icon-color: black;
+                }
+
+                &,
+                &:active {
+                    --icon-color: #{rgba(black, 0.7)};
+                }
+            }
+        }
+    }
+
+    &__code {
+        @include padding-x(calc(var(--padding-left) + 10px));
+        background-color: rgba(black, 0.1);
+        border: 1px solid rgba(green, 0.3);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border-radius: 4px;
+        position: relative;
+
+        font: {
+            size: 0.8rem;
+        }
+
+        --padding-left: 35px;
+        &::before {
+            content: ">_";
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: var(--padding-left);
+            border-right: 1px solid rgba(green, 0.3);
+            line-height: 1;
+
+            font: {
+                family: "Cascadia Code", monospace, "Ubuntu Mono";
+            }
+        }
+
+        @media screen and (prefers-color-scheme: light) {
+            background-color: white;
+        }
+    }
+
+    &__title {
+        margin: 0;
+
+        font: {
+            size: 0.8rem;
+            weight: 500;
+        }
+
+        opacity: 0.5;
+        text-transform: uppercase;
+
+        @media screen and (prefers-color-scheme: light) {
+            opacity: 0.8;
+        }
+    }
+}
+
+.tag {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    align-items: center;
+    gap: 5px;
+
+    font: {
+        family: "Cascadia Code", monospace, "Ubuntu Mono";
+        size: 0.8rem;
+    }
+
+    white-space: nowrap;
+
+    &,
+    &__item {
+        display: flex;
+    }
+
+    &__item {
+        --background: color-mix(in srgb, var(--text-color), black 90%);
+        --border-color: color-mix(in srgb, var(--text-color, green), black 65%);
+        border-width: 1px;
+        border-style: solid;
+        background-color: var(--background);
+        border-color: var(--border-color);
+        color: #{var(
+                --text-color,
+                color.adjust($color: $green-color, $lightness: 30%)
+            )};
+        border-radius: 20px;
+        padding: 0 12px;
+        line-height: 1;
+
+        height: 30px;
+        display: flex;
+        align-items: center;
+        animation: 300ms ease deploy forwards;
+
+        @media screen and (prefers-color-scheme: light) {
+            color: #{var(
+                    --text-color,
+                    color.adjust($color: $green-color, $lightness: -10%)
+                )};
+
+            --background: color-mix(in srgb, var(--text-color), white 90%);
+            --border-color: color-mix(
+                in srgb,
+                var(--text-color, green),
+                white 65%
+            );
+        }
+
+        font: {
+            size: 0.8rem;
+            weight: 300;
+        }
+
+        &--light {
+            --text-color: white;
+        }
+
+        &--command {
+            --text-color: #{rgba($command-color, 0.7)};
+        }
+
+        &--primary {
+            --text-color: #{$envinronment-var-color};
+        }
+
+        @media screen and (prefers-color-scheme: light) {
+            &--light {
+                --text-color: black;
+            }
+
+            &--command {
+                --text-color: #{color.adjust(
+                        $color: $command-color,
+                        $lightness: -10%
+                    )};
+            }
+
+            &--primary {
+                --text-color: #{color.adjust(
+                        $color: $envinronment-var-color,
+                        $lightness: -30%
+                    )};
+            }
+        }
+    }
+
+    &__label {
+        font: {
+            size: 0.8rem;
+            weight: 300;
+        }
+    }
+}
+
+.command {
+    color: white;
+
+    &--color {
+        color: $command-color;
+
+        @media screen and (prefers-color-scheme: light) {
+            color: color.adjust($color: $command-color, $lightness: -30%);
+            font: {
+                weight: 500;
+            }
+        }
+    }
+}
+
+.social-media {
+    --icon-size: 13px;
+    --icon-color: white;
+    --icon-width: var(--icon-size);
+    --icon-height: var(--icon-size);
+
+    list-style: none;
+    margin-top: 9px;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 3px;
+
+    &__item {
+        --padding: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    &__link {
+        border: 1px solid rgba($dlunire-color, 0.3);
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        padding-top: var(--padding);
+        padding-bottom: var(--padding);
+        border-radius: 5px;
+
+        &:hover {
+            background-color: rgba($dlunire-color, 0.1);
         }
     }
 }

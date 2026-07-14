@@ -1,2 +1,33 @@
+@use 'sass:color';
+
+$primary-color: #0080d4;
 $dark-color-theme: #090d10;
 $light-color-theme: white;
+$green-color: green;
+
+$command-color: #ff6600;
+$envinronment-var-color: color.adjust($color: $primary-color, $lightness: 20%);
+$envinronment-type-color: $command-color;
+$environment-value-string-color: rgba(white, 0.8);
+$environment-value-constant-color: color.adjust($color: $green-color, $lightness: 20%);
+
+// Algunos colores:
+$primary-color: #0056b3;
+$dlunire-color: $primary-color;
+$dlunire-secondary-color: color.adjust($color: white, $lightness: -93%);
+$dlunire-close: rgb(210, 0, 0);
+$dlunire-light-color: white;
+$dlunire-dark-color: color.adjust($color: white, $lightness: -93%);
+$dlunire-light-color: white;
+$dlunire-cart-color: #ffc521;
+$dlunire-cart-text-color: color.adjust($color: $dlunire-cart-color, $lightness: -45%);
+
+@mixin padding-y($padding) {
+    padding-top: $padding;
+    padding-bottom: $padding;
+}
+
+@mixin padding-x($padding) {
+    padding-left: $padding;
+    padding-right: $padding;
+}

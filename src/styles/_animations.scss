@@ -1,0 +1,20 @@
+@keyframes zoom-in {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes deploy {
+    from {
+        transform: scale(0.8) translateX(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+        transform-origin: top;
+    }
+}

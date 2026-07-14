@@ -19,7 +19,6 @@
 {#if dispatch.validated.validated}
     <Header />
     <svelte:component this={dispatch.component as Component} />
-    <Footer />
 {:else}
     <svelte:component this={dispatch.component as Component} />
 {/if}

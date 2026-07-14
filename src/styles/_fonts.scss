@@ -1,0 +1,14 @@
+@use "./vars" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+pre {
+    @include padding-y(4px);
+
+    font: {
+        size: 14px;
+        line-height: 1.5;
+        weight: 300;
+        family: "Cascadia Code", monospace;
+    }
+}
