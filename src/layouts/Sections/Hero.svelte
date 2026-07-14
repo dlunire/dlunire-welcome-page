@@ -24,8 +24,10 @@
                     <div class="logo logo--hero">
                         <IconDLUnire />
                     </div>
-                    <span>DL</span>
-                    <span>Unire</span>
+                    <div class="flex">
+                        <span>DL</span>
+                        <span>Unire</span>
+                    </div>
                 </h2>
 
                 <section class="section__inner-description">

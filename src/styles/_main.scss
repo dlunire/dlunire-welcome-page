@@ -13,6 +13,7 @@
 
     --nav-height: 70px;
     --nav-radius: calc(var(--nav-height) / 2);
+    z-index: 1000;
 
     &__nav {
         flex-grow: 1;
@@ -108,7 +109,6 @@
 
     &__label {
         margin: 0;
-        opacity: 0.7;
         letter-spacing: 0.4px;
         transition: 300ms ease;
 
@@ -451,4 +451,9 @@
             background-color: rgba($dlunire-color, 0.1);
         }
     }
+}
+
+.flex {
+    display: flex;
+    align-items: center;
 }

@@ -28,10 +28,6 @@
                 Herramientas y APIs de alto rendimiento con cero dependencias
                 para la construcción de software.
             </p>
-
-            <p class="footer__tagline">
-                NIT 700551569-1 &middot; Establecimiento de Comercio Registrado
-            </p>
         </div>
 
         <nav class="footer__nav">
@@ -134,32 +130,6 @@
                         class="social-media__link"
                     >
                         <IconX />
-                    </a>
-                </li>
-            </ul>
-
-            <h4 class="footer__title">Infomación de contacto</h4>
-            <ul class="footer__contact">
-                <li class="footer__contact-item">
-                    <strong>Teléfono:</strong>
-                    <a
-                        href="tel:+573026488528"
-                        class="footer__contact-link"
-                        rel="nofollow"
-                    >
-                        +57 302 648 8528
-                    </a>
-                </li>
-                <li class="footer__contact-item">
-                    <strong>Correo:</strong>
-                    <a
-                        href="mailto:ventas@dlunire.dev"
-                        aria-label="ventas@dlunire.dev"
-                        class="footer__contact-link"
-                        rel="nofollow"
-                        target="_blank"
-                    >
-                        ventas@dlunire.dev
                     </a>
                 </li>
             </ul>
