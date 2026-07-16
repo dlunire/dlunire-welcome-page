@@ -6,6 +6,8 @@ export type Dispatch = engine.Dispatch;
 
 /**
  * Registra las rutas de la aplicación.
+ *
+ * @returns { void }
  */
 function registerRoute(): void {
     engine.route("/", Welcome);
@@ -16,6 +18,8 @@ function registerRoute(): void {
  *
  * @returns El resultado del despacho, con `component` ya normalizado
  * a `NotFound` cuando no hubo coincidencia.
+ *
+ * @returns { Dispatch }
  */
 export function init(): Dispatch {
     registerRoute();
