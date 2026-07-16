@@ -8,6 +8,7 @@
 
     padding-top: 30px;
     padding-bottom: 20px;
+    @include padding-x(15px);
     display: flex;
     justify-content: center;
 
@@ -119,8 +120,10 @@
 }
 
 .snippet {
+    position: relative;
     flex-grow: 1;
-    max-width: var(--icon-height, 450px);
+    max-width: 450px;
+    width: 100%;
     border-radius: 10px;
     overflow: hidden;
     background-image: linear-gradient(
@@ -132,6 +135,10 @@
     position: relative;
     border-left: 1px solid rgba(white, 0.1);
     border-right: 1px solid rgba(white, 0.1);
+
+    @media screen and (max-width: 600px) {
+        /* max-width: calc(100vw - (var(--padding-column, 30px) + 10px)); */
+    }
 
     &::before,
     &::after {
@@ -173,6 +180,7 @@
     }
 
     &__body {
+        width: 100%;
         &-code {
             position: relative;
         }
@@ -252,8 +260,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         border-radius: 4px;
-        position: relative;
 
+        width: 100%;
         font: {
             size: 0.8rem;
         }
@@ -286,7 +294,6 @@
 
     &__title {
         margin: 0;
-
         font: {
             size: 0.8rem;
             weight: 500;
@@ -306,7 +313,8 @@
     margin: 0;
     padding-left: 0;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    flex-wrap: wrap;
 
     font: {
         family: "Cascadia Code", monospace, "Ubuntu Mono";
@@ -435,10 +443,18 @@
         align-items: center;
         justify-content: center;
         padding: 0;
+
+        &:not(:first-of-type) {
+            border-left: 1px solid rgba(white, 0.05);
+
+            &:hover {
+                border-left-color: transparent;
+            }
+        }
     }
 
     &__link {
-        border: 1px solid rgba($dlunire-color, 0.3);
+        border: 1px solid transparent;
         display: flex;
         flex-grow: 1;
         align-items: center;
@@ -449,6 +465,8 @@
 
         &:hover {
             background-color: rgba($dlunire-color, 0.1);
+            transition: none;
+            border-color: rgba($dlunire-color, 0.1);
         }
     }
 }

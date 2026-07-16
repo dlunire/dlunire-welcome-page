@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import Snippet from "../Components/Cards/Snippet.svelte";
     import IconDLUnire from "../Icons/IconDLUnire.svelte";
 </script>

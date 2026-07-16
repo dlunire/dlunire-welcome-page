@@ -8,7 +8,7 @@ export type Dispatch = engine.Dispatch;
  * Registra las rutas de la aplicación.
  */
 function registerRoute(): void {
-  engine.route("/", Welcome);
+    engine.route("/", Welcome);
 }
 
 /**
