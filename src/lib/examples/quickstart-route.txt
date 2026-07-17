@@ -1,0 +1,7 @@
+<?php
+
+use DLRoute\Requests\DLRoute;
+
+DLRoute::get('/api/health', fn () => [
+    'status' => 'ok',
+]);

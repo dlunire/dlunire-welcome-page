@@ -2,6 +2,8 @@
     import "highlight.js/styles/atom-one-dark.css"; // o el tema que uses
     import IconQuick from "../Icons/IconQuick.svelte";
     import Code from "../Components/Headers/Code.svelte";
+    import installCode from "$lib/examples/quickstart-install.txt?raw";
+    import routeCode from "$lib/examples/quickstart-route.txt?raw";
 </script>
 
 <section class="section section--quickstart">
@@ -28,12 +30,7 @@
                     y dlstorage.
                 </p>
 
-                <Code>
-                    {#snippet content()}
-                        composer create-project dlunire/dlunire my-project
-                        cd my-project
-                    {/snippet}
-                </Code>
+                <Code code={installCode} />
             </div>
 
             <div class="steps__item">
@@ -46,16 +43,7 @@
                 >
                     Registra la ruta en el archivo de configuración.
                 </p>
-                <Code>
-                    {#snippet content()}
-                        &lt;?php
-                        use DLRoute\Requests\DLRoute;
-
-                        DLRoute::get('/api/health', fn () => [
-                            'status' => 'ok',
-                        ]);
-                {/snippet}
-                </Code>
+                <Code code={routeCode} />
             </div>
         </div>
     </div>

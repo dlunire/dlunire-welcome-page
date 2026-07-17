@@ -1,0 +1,2 @@
+composer create-project dlunire/dlunire my-project
+cd my-project
