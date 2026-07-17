@@ -1,3 +1,5 @@
+@use "./vars" as *;
+
 button {
     & > * {
         user-select: none;
@@ -105,5 +107,16 @@ button {
                 background-color: transparent;
             }
         }
+    }
+
+    &--copy {
+        --radius: 4px;
+        --button-height: 30px;
+        --icon-size: 10px;
+        --icon-width: var(--icon-size);
+        --icon-height: var(--icon-size);
+        gap: 7px;
+
+        @include padding-x(10px);
     }
 }

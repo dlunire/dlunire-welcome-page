@@ -27,6 +27,11 @@
     &,
     &__inner {
         position: relative;
+
+        &--quickstart {
+            max-width: 950px;
+            margin: 0 auto;
+        }
     }
 
     &__inner {
@@ -73,6 +78,12 @@
     }
 
     &__title {
+        --icon-size: 40px;
+
+        --icon-width: var(--icon-size);
+        --icon-height: var(--icon-size);
+        --icon-color: white;
+
         align-items: center;
         gap: 6px;
         margin-top: 0;
