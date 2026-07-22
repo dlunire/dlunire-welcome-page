@@ -1,3 +1,11 @@
+@use "./vars" as *;
+
+@property --gradient-angule {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 @keyframes zoom-in {
     from {
         transform: scale(0.5);
@@ -16,5 +24,35 @@
         transform: scale(1) translateX(0);
         opacity: 1;
         transform-origin: top;
+    }
+}
+
+@keyframes stop-color {
+    from {
+        --stop-color-1: #{$green-color};
+        --stop-color-2: #{$dlunire-color};
+    }
+    to {
+        --stop-color-1: #{$dlunire-color}; /* mismo valor que en "from" */
+        --stop-color-2: #{$green-color}; /* mismo valor que en "from" */
+    }
+}
+
+@keyframes colorShiftA {
+    0%,
+    100% {
+        stop-color: #00f000;
+    }
+    50% {
+        stop-color: #0080d4;
+    }
+}
+@keyframes colorShiftB {
+    0%,
+    100% {
+        stop-color: #0080d4;
+    }
+    50% {
+        stop-color: #00ff00;
     }
 }

@@ -1,6 +1,18 @@
 @use "sass:color";
 @use "./vars" as *;
 
+@property --stop-color-1 {
+    syntax: '<color>';
+    initial-value: $green-color;
+    inherits: false;
+}
+
+@property --stop-color-2 {
+    syntax: '<color>';
+    initial-value: $dlunire-color;
+    inherits: false;
+}
+
 :root {
     background-size: 50px 50px;
     line-height: 1.7;
@@ -91,4 +103,15 @@ a {
     &:active {
         transition: none;
     }
+}
+
+code {
+    font: {
+        family: "Cascadia Code", monospace;
+    }
+
+    /* @include padding-x(7px); */
+    background-color: rgba(black, 0.2);
+    border-radius: 3px;
+    color: color.adjust($color: $dlunire-color, $lightness: 40%);
 }
