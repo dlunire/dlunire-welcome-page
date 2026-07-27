@@ -2,14 +2,20 @@
 @use "./vars" as *;
 
 @property --stop-color-1 {
-    syntax: '<color>';
+    syntax: "<color>";
     initial-value: $green-color;
     inherits: false;
 }
 
 @property --stop-color-2 {
-    syntax: '<color>';
+    syntax: "<color>";
     initial-value: $dlunire-color;
+    inherits: false;
+}
+
+@property --start-text-logo {
+    syntax: "<color>";
+    initial-value: blue;
     inherits: false;
 }
 
@@ -55,6 +61,11 @@
                 rgba($dark-color-theme, 0.06) 1px,
                 transparent 1px
             );
+
+        --start-text-color: #{color.adjust(
+                $color: $dlunire-color,
+                $lightness: -20%
+            )};
     }
 
     --max-width: 1100px;

@@ -1,29 +1,86 @@
-<svg width="0" height="0" style="position: absolute;">
+<script lang="ts">
+    let {
+        content,
+        className,
+        borderWidth,
+        values,
+    }: {
+        content: Function;
+        className: string;
+        borderWidth?: number;
+        values?: string[];
+    } = $props();
+
+    let stopValuesA: string = $derived(
+        Array.isArray(values) ? values.join("; ") : "#0080ff; #ff6c00",
+    );
+
+    let stopValuesB: string = $derived(
+        Array.isArray(values)
+            ? values.reverse().join("; ")
+            : "#ff6c00; #0080ff",
+    );
+</script>
+
+<!-- AnimatedBox.svelte -->
+<svg width="0" height="0">
     <defs>
         <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop class="stop-a" offset="0%" />
-            <stop class="stop-b" offset="100%" />
+            <stop offset="0%">
+                <animate
+                    attributeName="stop-color"
+                    values={stopValuesA}
+                    dur="4s"
+                    repeatCount="indefinite"
+                />
+            </stop>
+            <stop offset="100%">
+                <animate
+                    attributeName="stop-color"
+                    values={stopValuesB}
+                    dur="4s"
+                    repeatCount="indefinite"
+                />
+            </stop>
         </linearGradient>
     </defs>
 </svg>
 
-<div class="brand-wrapper">
-    <slot />
+<div class={className}>
+    <svg class="border-svg" preserveAspectRatio="none">
+        <rect
+            x="2"
+            y="2"
+            width="calc(100% - 4px)"
+            height="calc(100% - 4px)"
+            rx="12"
+            fill="none"
+            stroke="url(#brandGradient)"
+            stroke-width={borderWidth ?? 1}
+        />
+    </svg>
+    <div class="content">
+        {@render content()}
+    </div>
 </div>
 
 <style>
-    .stop-a {
-        animation: colorShiftA 4s infinite;
+    svg {
+        position: absolute;
     }
-    .stop-b {
-        animation: colorShiftB 4s infinite;
+    .animated-box {
+        position: relative;
+        display: inline-block;
     }
-
-    .brand-wrapper {
+    .border-svg {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        pointer-events: none;
+    }
+    .content {
+        position: relative;
+        padding: 1.5rem;
     }
 </style>

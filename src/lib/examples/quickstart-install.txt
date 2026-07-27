@@ -1,2 +1,8 @@
+# Instalación:
 composer create-project dlunire/dlunire my-project
+
+# Ir al directorio:
 cd my-project
+
+# Correr el servidor:
+php -S localhost:3000 -t public/

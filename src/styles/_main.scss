@@ -103,7 +103,7 @@
             color: var(--icon-color);
 
             &:first-of-type {
-                color: green;
+                color: var(--start-text-color);
             }
         }
     }
@@ -150,7 +150,11 @@
         left: 0;
         right: 0;
         height: 3px;
-        background-image: linear-gradient(90deg, var(--stop-color-1), var(--stop-color-2));
+        background-image: linear-gradient(
+            90deg,
+            var(--stop-color-1),
+            var(--stop-color-2)
+        );
         animation: stop-color 3s infinite;
     }
 
@@ -482,19 +486,74 @@
 
 .steps {
     display: grid;
-    gap: 10px;
     grid-template-columns: 1fr;
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: var(--radius);
 
-    border: 1px solid rgba(white, 0.3);
+    --radius: 0.5rem;
+
+    &__item {
+        --circle-size: 45px;
+        --border-color: #{white};
+
+        padding-left: var(--circle-size);
+        position: relative;
+
+        &:not(:last-of-type) {
+            padding-bottom: 30px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+
+            background-color: var(--border-color);
+            z-index: 0;
+        }
+
+        &::before {
+            width: 2px;
+            bottom: 0;
+            height: 100%;
+        }
+
+        &:last-of-type {
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                width: var(--circle-size);
+                height: 50%;
+                top: 0;
+                border-left: 2px solid var(--border-color);
+                border-bottom: 2px solid var(--border-color);
+                background-color: transparent;
+                border-radius: 0 0 0 10px;
+            }
+        }
+    }
 
     &__code {
+        @include padding-y(0);
         white-space: pre-line;
         margin: 0;
-        @include padding-y(0);
+        border-radius: var(--radius);
 
         &-header {
+            @include padding-x(10px);
+
             --icon-size: 20px;
             --icon-width: var(--icon-size);
             --icon-height: var(--icon-size);
@@ -504,7 +563,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            @include padding-x(10px);
             background-color: color.adjust(
                 $color: $dark-color-theme,
                 $lightness: -1%
@@ -514,67 +572,102 @@
             top: 0;
 
             border-bottom: 1px solid rgba($dlunire-color, 0.2);
+            border-radius: var(--radius);
         }
 
         &-title {
+            --icon-size: 15px;
+            --icon-width: var(--icon-size);
+            --icon-height: var(--icon-size);
+            --icon-color: white;
+
             $color: color.adjust(
                 $color: $dlunire-color,
                 $lightness: 40%,
             );
+
+            position: relative;
             margin: 0;
             display: flex;
             align-items: center;
             gap: 5px;
             line-height: 1;
-
-            --icon-size: 15px;
-            --icon-width: var(--icon-size);
-            --icon-height: var(--icon-size);
+            color: var(--icon-color);
+            text-transform: uppercase;
 
             font: {
                 weight: 500;
                 size: 0.8rem;
                 family: "Cascadia Code", monospace;
             }
-
-            --icon-color: #{rgba($color, 0.8)};
-
-            text-transform: uppercase;
-            color: var(--icon-color);
         }
 
         &-container {
+            $color: color.adjust(
+                $color: $dlunire-color,
+                $lightness: 20%,
+            );
             position: relative;
-            /* box-shadow: 2px 2px 10px 0 rgba(white, 0.05); */
-            border-left: 1px solid rgba($dlunire-color, 0.3);
-            border-right: 1px solid rgba($dlunire-color, 0.3);
+            border: 1px solid rgba($color, 0.3);
+            box-shadow: 0 0 20px 0 rgba($color, 0.2);
+            border-radius: var(--radius);
+        }
+    }
 
-            &::before,
-            &::after {
-                content: "";
-                position: absolute;
-                background-image: linear-gradient(
-                    90deg,
-                    $command-color,
-                    rgba($green-color, 03)
-                );
-                height: 1px;
-                margin: auto;
-                left: 0;
-                right: 0;
+    &__title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        margin-left: calc(var(--circle-size) * -1);
+        transform: translateX(calc((var(--circle-size) * -1) / 2));
+
+        font: {
+            weight: 400;
+        }
+
+        z-index: 2;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            margin: auto;
+            left: calc(var(--circle-size) + 10px);
+            top: auto;
+            bottom: 0;
+            right: calc((var(--circle-size) * -1) / 2);
+            height: 1px;
+            background-color: color-mix(in srgb, var(--border-color) 20%, transparent);
+        }
+
+        &::before {
+            content: "1";
+            line-height: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            width: var(--circle-size);
+            height: var(--circle-size);
+            background-color: color.adjust(
+                $color: $dlunire-color,
+                $lightness: -20%
+            );
+            border: 2px solid white;
+            color: white;
+            border-radius: calc(var(--circle-size) / 2);
+
+            font: {
+                size: 1rem;
+                family: "Cascadia Code", monospace;
             }
 
-            &::before {
-                top: -1px;
-                bottom: auto;
-                z-index: 10;
-                /* opacity: 0.2; */
-            }
-
-            &::after {
-                top: auto;
-                bottom: 0;
-            }
+            z-index: 2;
         }
     }
 }
@@ -601,9 +694,9 @@
     width: 100%;
 
     &__item {
+        position: relative;
         padding: 1rem;
         border-radius: 0.5rem;
-        border: 1px solid rgba($dlunire-color, 0.3);
         background-color: rgba(black, 0.3);
     }
 

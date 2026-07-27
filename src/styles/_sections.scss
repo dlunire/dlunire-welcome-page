@@ -103,7 +103,7 @@
 
             span {
                 &:first-of-type {
-                    color: green;
+                    color: var(--start-text-color);
                 }
             }
         }

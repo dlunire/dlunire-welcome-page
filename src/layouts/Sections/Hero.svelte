@@ -11,9 +11,9 @@
                     <li class="tag__item">PHP 8.2+</li>
                 </ul>
 
-                <span class="tag__label"
-                    >Modular • Unidades que se conectan</span
-                >
+                <span class="tag__label">
+                    Modular • Unidades que se conectan
+                </span>
             </div>
 
             <div class="section__inner-info">

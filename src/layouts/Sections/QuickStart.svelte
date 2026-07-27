@@ -20,7 +20,7 @@
         <div class="steps">
             <div class="steps__item">
                 <h3 class="steps__title" aria-label="Paso 1: Instalar Dlunire">
-                    Paso 1: Instalar Dlunire
+                    <span>Instalar DLUnire</span>
                 </h3>
                 <p
                     class="steps__description"
@@ -30,12 +30,12 @@
                     y dlstorage.
                 </p>
 
-                <Code code={installCode} />
+                <Code code={installCode.trim()} />
             </div>
 
             <div class="steps__item">
                 <h3 class="steps__title" aria-label="Paso 2: Registrar la ruta">
-                    Paso 2: Registrar la ruta
+                    Registrar la ruta
                 </h3>
                 <p
                     class="steps__description"
@@ -43,7 +43,7 @@
                 >
                     Registra la ruta en el archivo de configuración.
                 </p>
-                <Code code={routeCode} />
+                <Code code={routeCode.trim()} />
             </div>
         </div>
     </div>
