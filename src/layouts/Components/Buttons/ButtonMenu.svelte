@@ -1,7 +1,8 @@
 <script lang="ts">
     import Button from "./Button.svelte";
 
-    let open: boolean = false;
+    let { open = $bindable<boolean>() }: { open: boolean } = $props();
+
     function onclick(event: MouseEvent): void {
         const { target: button } = event;
         if (!(button instanceof HTMLButtonElement)) return;

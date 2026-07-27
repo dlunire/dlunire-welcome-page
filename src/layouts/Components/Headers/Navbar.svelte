@@ -1,8 +1,10 @@
-<script>
+<script lang="ts">
     import IconDLUnire from "../../Icons/IconDLUnire.svelte";
     import ButtonMenu from "../Buttons/ButtonMenu.svelte";
     import Link from "../Links/Link.svelte";
     import Window from "../Windows/Window.svelte";
+
+    let open: boolean = false;
 </script>
 
 <nav class="header__nav">
@@ -22,10 +24,12 @@
     </div>
 
     <div class="header__nav-item">
-        <ButtonMenu />
+        <ButtonMenu bind:open />
     </div>
 </nav>
 
-<Window>
-
+<Window bind:open windowMenu={true}>
+    {#snippet content()}
+        Contenido de prueba
+    {/snippet}
 </Window>

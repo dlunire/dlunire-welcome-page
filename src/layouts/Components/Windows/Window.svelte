@@ -4,13 +4,13 @@
     let {
         content,
         open = $bindable(),
-        windowMenu = $bindable(),
-        windowModal = $bindable(),
+        windowMenu = false,
+        windowModal = false,
         title = $bindable(),
     }: {
         open: boolean;
-        windowMenu: boolean;
-        windowModal: boolean;
+        windowMenu?: boolean;
+        windowModal?: boolean;
         title?: string;
         content?: Function;
     } = $props();

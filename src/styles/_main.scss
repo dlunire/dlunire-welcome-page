@@ -548,9 +548,13 @@
 
     &__code {
         @include padding-y(0);
-        white-space: pre-line;
+        white-space: pre;
         margin: 0;
         border-radius: var(--radius);
+        $color: color.adjust(
+            $color: $dlunire-color,
+            $lightness: 20%,
+        );
 
         &-header {
             @include padding-x(10px);
@@ -570,7 +574,7 @@
             );
             color: white;
             position: sticky;
-            top: 0;
+            top: 200px;
 
             border-bottom: 1px solid rgba($dlunire-color, 0.2);
             border-radius: var(--radius);
@@ -604,10 +608,6 @@
         }
 
         &-container {
-            $color: color.adjust(
-                $color: $dlunire-color,
-                $lightness: 20%,
-            );
             position: relative;
             border: 1px solid rgba($color, 0.3);
             box-shadow: 0 0 20px 0 rgba($color, 0.2);
