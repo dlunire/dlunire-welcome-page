@@ -485,12 +485,13 @@
 }
 
 .steps {
+    --radius: 0.5rem;
+
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 auto;
     border-radius: var(--radius);
-
-    --radius: 0.5rem;
+    counter-set: item;
 
     &__item {
         --circle-size: 45px;
@@ -498,6 +499,7 @@
 
         padding-left: var(--circle-size);
         position: relative;
+        counter-increment: item;
 
         &:not(:last-of-type) {
             padding-bottom: 30px;
@@ -644,7 +646,7 @@
         }
 
         &::before {
-            content: "1";
+            content: counter(item);
             line-height: 0;
             position: relative;
             display: flex;

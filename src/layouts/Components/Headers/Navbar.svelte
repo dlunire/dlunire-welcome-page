@@ -2,6 +2,7 @@
     import IconDLUnire from "../../Icons/IconDLUnire.svelte";
     import ButtonMenu from "../Buttons/ButtonMenu.svelte";
     import Link from "../Links/Link.svelte";
+    import Window from "../Windows/Window.svelte";
 </script>
 
 <nav class="header__nav">
@@ -24,3 +25,7 @@
         <ButtonMenu />
     </div>
 </nav>
+
+<Window>
+
+</Window>
