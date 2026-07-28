@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import IconClose from "../../Icons/IconClose.svelte";
 
     let {
@@ -14,10 +15,30 @@
         title?: string;
         content?: Function;
     } = $props();
+
+    let windowRef: HTMLElement | null = $state(null);
+
+    onMount(() => {
+        if (!(windowRef instanceof HTMLElement)) return;
+        document.body.appendChild(windowRef);
+    });
+
+    function windowState() {
+        if (windowMenu) return;
+        open
+            ? document.body.style.setProperty("overflow", "hidden")
+            : document.body.style.setProperty("overflow", "auto");
+    }
+
+    $effect(() => windowState());
 </script>
 
 {#if open}
-    <div class="container-window">
+    <div
+        class="window-container"
+        class:window-container--menu={windowMenu}
+        bind:this={windowRef}
+    >
         <div
             class="window"
             class:window--menu={windowMenu}

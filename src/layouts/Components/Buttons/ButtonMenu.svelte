@@ -9,8 +9,6 @@
 
         open = !open;
         button.dataset.menu = String(open);
-
-        console.log({ open });
     }
 </script>
 
