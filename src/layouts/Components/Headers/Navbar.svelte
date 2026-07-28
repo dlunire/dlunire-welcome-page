@@ -30,6 +30,30 @@
 
 <Window bind:open windowMenu={true}>
     {#snippet content()}
-        Contenido de prueba
+        <ul class="menu">
+            <li class="menu__item">
+                <Link className="menu__link" href="/#quickstart">
+                    {#snippet content()}
+                        <span>QuickStart</span>
+                    {/snippet}
+                </Link>
+            </li>
+
+            <li class="menu__item">
+                <Link href="#hero" className="menu__link">
+                    {#snippet content()}
+                        <span>Hero</span>
+                    {/snippet}
+                </Link>
+            </li>
+
+            <li class="menu__item">
+                <Link href="#section-api" className="menu__link">
+                    {#snippet content()}
+                        <span>API</span>
+                    {/snippet}
+                </Link>
+            </li>
+        </ul>
     {/snippet}
 </Window>

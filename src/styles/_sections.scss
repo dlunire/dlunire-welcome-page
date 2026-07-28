@@ -5,6 +5,7 @@
     padding: 40px 15px;
     display: flex;
     justify-content: center;
+    scroll-margin-top: var(--header-height);
 
     &--hero {
         background-image: radial-gradient(

@@ -6,7 +6,7 @@
     import routeCode from "$lib/examples/quickstart-route.txt?raw";
 </script>
 
-<section class="section section--quickstart">
+<section class="section section--quickstart" id="quickstart">
     <div class="section__inner section__inner--quickstart">
         <h2
             class="section__title section__title--quickstart"

@@ -32,7 +32,6 @@
         const stringScheme: string = href.substring(0, offset);
         const isValid: boolean = scheme[stringScheme as keyof Scheme] ?? false;
 
-        console.log({ stringScheme });
         if (!isValid) {
             event.preventDefault();
             throw new Error(
@@ -41,6 +40,11 @@
         }
     }
 
+    /**
+     * Navega secciones y ruta de la página estática.
+     *
+     * @param event
+     */
     function navigate(event: MouseEvent): void {
         let offset = 0;
 
@@ -59,9 +63,30 @@
             offset++;
         }
 
+        const url: URL = new URL(dlroute.asset(href));
+
+        console.log({ url });
+
+        const isSame: boolean = isSameRoute(href);
+        if (isSame && url.hash.trim()) return;
+
         event.preventDefault();
-        history.pushState({}, "", dlroute.asset(href));
-        window.dispatchEvent(new PopStateEvent("popstate"));
+        history.pushState(
+            {},
+            "",
+            dlroute.asset(url.pathname) + url.hash.trim(),
+        );
+        globalThis.dispatchEvent(new PopStateEvent("popstate"));
+    }
+
+    /**
+     * Indica si se trata de la misma ruta.
+     *
+     * @param href Ruta relativa a evaluar
+     */
+    function isSameRoute(href: string): boolean {
+        const url: URL = new URL(dlroute.asset(href));
+        return url.pathname === globalThis.location.pathname;
     }
 </script>
 

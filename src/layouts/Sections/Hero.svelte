@@ -3,7 +3,7 @@
     import IconDLUnire from "../Icons/IconDLUnire.svelte";
 </script>
 
-<section class="section section--hero">
+<section class="section section--hero" id="hero">
     <div class="section__inner section__inner--hero section__inner--column">
         <div class="section__column">
             <div class="section__column-tag">
