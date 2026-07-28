@@ -85,3 +85,36 @@
         opacity: 1;
     }
 }
+
+@keyframes deploy-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes deploy-down {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes open-menu {
+    from {
+        transform: scaleZ(0.3) rotateX(120deg);
+        opacity: 0;
+    }
+    to {
+        transform: scaleZ(1) rotateX(0deg);
+        opacity: 1;
+    }
+}
