@@ -12,6 +12,6 @@
     });
 </script>
 
-<header class="header" id="home" bind:this={element}>
+<header class="header" bind:this={element}>
     <Navbar />
 </header>

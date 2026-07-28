@@ -11,7 +11,7 @@
         element?: HTMLElement|null
     } = $props();
 
-    
+
 </script>
 
 <button

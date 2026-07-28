@@ -28,13 +28,13 @@
     </div>
 </nav>
 
-<Window bind:open windowMenu={true}>
+<Window bind:open windowMenu={true} title="Navegación">
     {#snippet content()}
         <ul class="menu">
             <li class="menu__item">
-                <Link className="menu__link" href="/#quickstart">
+                <Link className="menu__link" href="/#home">
                     {#snippet content()}
-                        <span>QuickStart</span>
+                        <span>HOME</span>
                     {/snippet}
                 </Link>
             </li>
@@ -54,6 +54,23 @@
                     {/snippet}
                 </Link>
             </li>
+
+            <li class="menu__item">
+                <Link className="menu__link" href="/#quickstart">
+                    {#snippet content()}
+                        <span>QuickStart</span>
+                    {/snippet}
+                </Link>
+            </li>
         </ul>
+
+        <div class="navigation">
+            <div class="navigation__description">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Reprehenderit, voluptatibus?
+                </p>
+            </div>
+        </div>
     {/snippet}
 </Window>

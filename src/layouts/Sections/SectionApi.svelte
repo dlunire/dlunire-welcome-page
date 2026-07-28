@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Api } from "$lib/types/type";
     import ApiCards from "../Components/Apis/ApiCards.svelte";
+    import IconApi from "../Icons/IconApi.svelte";
 
     let apis: Api[] = [
         {
@@ -26,6 +27,10 @@
 
 <section class="section section--api" id="section-api">
     <div class="section__inner section__inner--api">
+        <h2 class="section__title section__title--api" aria-label="Diseñado para desarrolladores">
+            <IconApi />
+            <span>Diseñado para desarrolladores</span>
+        </h2>
         <ApiCards {apis} />
     </div>
 </section>

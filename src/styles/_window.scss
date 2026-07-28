@@ -36,15 +36,12 @@
         border-radius: 5px;
         pointer-events: auto;
         user-select: auto;
-        position: relative;
-        padding: 10px;
-        border-left: 1px solid;
-        border-top: 1px solid;
-        border-right: 1px solid;
+        border: 1px solid;
+        overflow: hidden;
 
         @media screen and (prefers-color-scheme: dark) {
-            $color: color.adjust($color: $dlunire-color, $lightness: -33%);
-            background-color: rgba($color, 0.7);
+            $color: color.adjust($color: $dlunire-color, $lightness: -33%, $saturation: -50%);
+            background-color: rgba($color, 1);
             border-color: rgba($dlunire-color, 0.5);
         }
 
@@ -61,6 +58,31 @@
                 $dlunire-color,
                 $command-color
             );
+        }
+    }
+
+    &__header {
+        --icon-color: white;
+        --icon-size: 15px;
+        --icon-width: var(--icon-size);
+        --icon-height: var(--icon-size);
+
+        background-color: rgba(white, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+
+        @media screen and (prefers-color-scheme: dark) {
+            border-bottom: 1px solid rgba(white, 0.1);
+        }
+    }
+
+    &__title {
+        margin: 0;
+
+        font: {
+            size: 1rem;
         }
     }
 }

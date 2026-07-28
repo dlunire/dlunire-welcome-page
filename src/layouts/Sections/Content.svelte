@@ -3,5 +3,7 @@
 </script>
 
 {#if typeof content === "function"}
-    {@render content()}
+    <div class="container" id="home">
+        {@render content()}
+    </div>
 {/if}

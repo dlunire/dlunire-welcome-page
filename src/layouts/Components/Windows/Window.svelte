@@ -4,7 +4,7 @@
 
     let {
         content,
-        open = $bindable(),
+        open = $bindable<boolean>(),
         windowMenu = false,
         windowModal = false,
         title = $bindable(),
@@ -31,6 +31,10 @@
     }
 
     $effect(() => windowState());
+
+    function windowClose() {
+        open = false;
+    }
 </script>
 
 {#if open}
@@ -44,19 +48,20 @@
             class:window--menu={windowMenu}
             class:window--modal={windowModal}
         >
-            {#if !windowMenu}
-                <header class="window__header">
-                    <h2 class="window__title">
-                        {title ?? "Título por defecto"}
-                    </h2>
-                    <button
-                        class="button button--close-window"
-                        aria-label="Cerrar ventana"
-                    >
-                        <IconClose />
-                    </button>
-                </header>
-            {/if}
+            <header class="window__header">
+                <h2 class="window__title">
+                    {title ?? "Título por defecto"}
+                </h2>
+                <button
+                    class="button button--close-window"
+                    aria-label="Cerrar ventana"
+                    onclick={windowClose}
+                >
+                    <IconClose />
+                </button>
+            </header>
+            <!-- {#if !windowMenu}
+            {/if} -->
 
             <div class="window__container">
                 {#if content}
