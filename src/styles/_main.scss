@@ -35,8 +35,13 @@
                 $color: $dlunire-color,
                 $lightness: -32%,
             );
-            border: 1px solid rgba($dlunire-color, 0.2);
-            background-color: rgba($color, 0.6);
+            border: 1px solid
+                color-mix(in srgb, var(--dlunire-color) 30%, white 20%);
+            background-color: color-mix(
+                in srgb,
+                var(--dlunire-color) 5%,
+                white 0%
+            );
         }
 
         @media screen and (prefers-color-scheme: light) {
@@ -117,7 +122,7 @@
         margin: 0;
         letter-spacing: 0.4px;
         transition: 300ms ease;
-        color: color-mix(in srgb, var(--dlunire-command), white 30%);
+        color: color-mix(in srgb, var(--dlunire-color) 50%, white 60%);
 
         font: {
             size: 0.7rem;
@@ -557,10 +562,16 @@
         white-space: pre;
         margin: 0;
         border-radius: var(--radius);
-        $color: color.adjust(
+        background-color: transparent;
+
+        $code-color: color.adjust(
             $color: $dlunire-color,
-            $lightness: 20%,
+            $lightness: -33%,
+            $saturation: -50%,
         );
+
+        border-top: 1px solid color-mix(in srgb, var(--dlunire-color) 20%, white 20%);
+        border-radius: 0 0 var(--radius) var(--radius);
 
         &-header {
             @include padding-x(10px);
@@ -574,16 +585,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: color.adjust(
-                $color: $dark-color-theme,
-                $lightness: -1%
-            );
             color: white;
             position: sticky;
-            top: 200px;
-
-            border-bottom: 1px solid rgba($dlunire-color, 0.2);
-            border-radius: var(--radius);
+            top: var(--header-height);
+            border-radius: 0;
+            background-color: $code-color;
+            border-radius: var(--radius) var(--radius) 0 0;
         }
 
         &-title {
@@ -615,9 +622,11 @@
 
         &-container {
             position: relative;
-            border: 1px solid rgba($color, 0.3);
-            box-shadow: 0 0 20px 0 rgba($color, 0.2);
+            border: 1px solid
+                color-mix(in srgb, var(--dlunire-color) 30%, white 15%);
+            box-shadow: 0 0 20px 0 rgba(white, 0.1);
             border-radius: var(--radius);
+            background-color: $code-color;
         }
     }
 
@@ -686,13 +695,9 @@
 .hljs {
     white-space: pre;
     margin: 0;
-    background-color: color.adjust(
-        $color: transparent,
-        $lightness: -1%
-    ) !important;
+    background-color: transparent !important;
     color: white !important;
     text-align: left;
-
     line-height: 1.2;
 }
 
