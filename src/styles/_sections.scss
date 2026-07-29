@@ -8,10 +8,6 @@
     scroll-margin-top: var(--header-height);
 
     &--hero {
-        // background-image: radial-gradient(
-        //     rgba($dlunire-color, 0.2),
-        //     transparent 50%
-        // );
         background-size: 100% 100%;
         background-position-x: left;
         background-repeat: no-repeat;
@@ -80,15 +76,15 @@
 
     &__title {
         --icon-size: 40px;
-
         --icon-width: var(--icon-size);
         --icon-height: var(--icon-size);
-        --icon-color: white;
+        --icon-color: color-mix(in srgb, var(--dlunire-color) 10%, white 40%);
 
         align-items: center;
         gap: 6px;
         margin-top: 0;
         margin-bottom: 10px;
+        border-bottom: 1px solid color-mix(in srgb, var(--dlunire-color) 10%, white 10%);
 
         &,
         span {
@@ -96,7 +92,8 @@
         }
 
         &--hero {
-            margin-bottom: -20px;
+            margin-bottom: 0;
+            margin-bottom: 0;
 
             font: {
                 size: 3rem;
@@ -104,7 +101,7 @@
 
             span {
                 &:first-of-type {
-                    color: var(--start-text-color);
+                    color: var(--dlunire-color);
                 }
             }
         }

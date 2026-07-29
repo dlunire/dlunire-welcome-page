@@ -106,10 +106,10 @@
         span {
             display: flex;
             color: var(--icon-color);
+        }
 
-            &:first-of-type {
-                color: var(--start-text-color);
-            }
+        &-first {
+            color: var(--dlunire-color);
         }
     }
 
@@ -117,6 +117,7 @@
         margin: 0;
         letter-spacing: 0.4px;
         transition: 300ms ease;
+        color: color-mix(in srgb, var(--dlunire-command), white 30%);
 
         font: {
             size: 0.7rem;

@@ -13,12 +13,6 @@
     inherits: false;
 }
 
-@property --start-text-logo {
-    syntax: "<color>";
-    initial-value: blue;
-    inherits: false;
-}
-
 :root {
     background-size: 50px 50px;
     line-height: 1.7;

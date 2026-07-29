@@ -3,15 +3,13 @@
         onclick = (event: MouseEvent) => {},
         content = undefined,
         menu = false,
-        element = $bindable()
+        element = $bindable(),
     }: {
+        element: HTMLElement | null;
         onclick?: (event: MouseEvent) => void;
-        content?: Function,
-        menu?: boolean,
-        element?: HTMLElement|null
+        content?: Function;
+        menu?: boolean;
     } = $props();
-
-
 </script>
 
 <button

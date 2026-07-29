@@ -14,8 +14,8 @@
                 <IconDLUnire />
                 <div class="logo__text">
                     <h2 class="logo__title">
-                        <span>DL</span>
-                        <span>Unire</span>
+                        <span class="logo__title-first">DL</span>
+                        <span class="logo__title-second">Unire</span>
                     </h2>
                     <p class="logo__label">PHP • API FIRST</p>
                 </div>
