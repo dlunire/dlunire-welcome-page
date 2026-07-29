@@ -332,12 +332,12 @@
     margin: 0;
     padding-left: 0;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
     flex-wrap: wrap;
 
     font: {
         family: "Cascadia Code", monospace, "Ubuntu Mono";
-        size: 0.8rem;
+        size: 0.7rem;
     }
 
     white-space: nowrap;
@@ -379,11 +379,6 @@
                 var(--text-color, green),
                 white 65%
             );
-        }
-
-        font: {
-            size: 0.8rem;
-            weight: 300;
         }
 
         &--light {

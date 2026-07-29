@@ -32,10 +32,12 @@
 
                 <section class="section__inner-description">
                     <p>
-                        Framework PHP orientado a API: rutas JSON,
-                        controladores, ORM y .env.type. Skeleton listo para
-                        producir, kernel DLCore, HTTP con DLRoute y
-                        almacenamiento DLStorage. Las plantillas HTML son
+                        Framework PHP orientado a API: rutas <code>JSON</code>,
+                        controladores, <code>ORM</code> y
+                        <code>.env.type</code>. Skeleton listo para producir,
+                        kernel <strong>DLCore</strong>, HTTP con
+                        <code>DLRoute</code>, almacenamiento
+                        <code>DLStorage</code>. Las plantillas HTML son
                         opcionales (p. ej. esta bienvenida); el foco es backend
                         y APIs.
                     </p>
