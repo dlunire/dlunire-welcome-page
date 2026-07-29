@@ -43,7 +43,7 @@
                 >
                     Registra la ruta en el archivo de configuración.
                 </p>
-                <Code code={routeCode.trim()} />
+                <Code code={routeCode.trim()} title="web.php" />
             </div>
         </div>
     </div>

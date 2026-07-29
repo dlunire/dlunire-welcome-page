@@ -80,11 +80,21 @@
         --icon-height: var(--icon-size);
         --icon-color: color-mix(in srgb, var(--dlunire-color) 10%, white 40%);
 
+        @media screen and (prefers-color-scheme: light) {
+            --icon-color: color-mix(
+                in srgb,
+                var(--dlunire-color) 60%,
+                black 60%
+            );
+            color: var(--icon-color);
+        }
+
         align-items: center;
         gap: 6px;
         margin-top: 0;
         margin-bottom: 10px;
-        border-bottom: 1px solid color-mix(in srgb, var(--dlunire-color) 10%, white 10%);
+        border-bottom: 1px solid
+            color-mix(in srgb, var(--dlunire-color) 10%, white 10%);
 
         &,
         span {

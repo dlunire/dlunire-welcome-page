@@ -38,6 +38,8 @@
                 rgba($light-color-theme, 0.01) 1px,
                 transparent 1px
             );
+
+        --dlunire-color: #{color.adjust($color: $dlunire-color, $lightness: 30%)};
     }
 
     @media screen and (prefers-color-scheme: light) {
@@ -110,13 +112,20 @@ a {
     }
 }
 
-code {
+pre, cod {
     font: {
         family: "Cascadia Code", monospace;
     }
+}
+code {
 
     /* @include padding-x(7px); */
     background-color: rgba(black, 0.2);
     border-radius: 3px;
     color: color.adjust($color: $dlunire-color, $lightness: 40%);
+
+    @media screen and (prefers-color-scheme: light) {
+        color: color.adjust($color: $dlunire-color, $lightness: 0%);
+        background-color: rgba(black, 0.05);
+    }
 }

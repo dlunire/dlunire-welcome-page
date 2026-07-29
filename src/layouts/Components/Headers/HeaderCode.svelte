@@ -2,7 +2,9 @@
     import IconCopy from "../../Icons/IconCopy.svelte";
     import IconFile from "../../Icons/IconFile.svelte";
 
-    let copied: boolean = false;
+    let { title }: { title?: string } = $props();
+
+    let copied: boolean = $state<boolean>(false);
 
     async function handleCopy(event: MouseEvent): Promise<void> {
         const { target: button } = event;
@@ -27,7 +29,7 @@
 <header class="steps__code-header">
     <h4 class="steps__code-title" aria-label="Terminal">
         <IconFile />
-        <span>Terminal</span>
+        <span>{title ?? "Terminal"}</span>
     </h4>
 
     <button

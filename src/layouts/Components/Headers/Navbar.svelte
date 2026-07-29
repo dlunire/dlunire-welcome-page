@@ -1,4 +1,5 @@
 <script lang="ts">
+    import IconArrowRight from "../../Icons/IconArrowRight.svelte";
     import IconDLUnire from "../../Icons/IconDLUnire.svelte";
     import ButtonMenu from "../Buttons/ButtonMenu.svelte";
     import Link from "../Links/Link.svelte";
@@ -34,6 +35,7 @@
             <li class="menu__item">
                 <Link className="menu__link" href="/#home">
                     {#snippet content()}
+                        <IconArrowRight />
                         <span>HOME</span>
                     {/snippet}
                 </Link>
@@ -42,6 +44,7 @@
             <li class="menu__item">
                 <Link href="#section-api" className="menu__link">
                     {#snippet content()}
+                        <IconArrowRight />
                         <span>API</span>
                     {/snippet}
                 </Link>
@@ -50,6 +53,7 @@
             <li class="menu__item">
                 <Link className="menu__link" href="/#quickstart">
                     {#snippet content()}
+                        <IconArrowRight />
                         <span>QuickStart</span>
                     {/snippet}
                 </Link>

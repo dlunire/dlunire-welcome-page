@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "./vars" as *;
 
 @property --gradient-angule {
@@ -8,13 +9,7 @@
 
 @property --dlunire-color {
     syntax: "<color>";
-    inherits: false;
-    initial-value: $dlunire-color;
-}
-
-@property --start-text-logo {
-    syntax: '<color>';
-    inherits: false;
+    inherits: true;
     initial-value: $dlunire-color;
 }
 

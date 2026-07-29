@@ -16,7 +16,7 @@
         content?: Function;
     } = $props();
 
-    let windowRef: HTMLElement | null = $state(null);
+    let windowRef: HTMLElement | null = $state<null>(null);
 
     onMount(() => {
         if (!(windowRef instanceof HTMLElement)) return;

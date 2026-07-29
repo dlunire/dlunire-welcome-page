@@ -46,6 +46,11 @@ button {
         --line-width: 25px;
         border: 1px solid color-mix(in srgb, var(--dlunire-color) 5%, white 20%);
 
+        @media screen and (prefers-color-scheme: light) {
+            border: var(--border, 1px solid rgba(black, 0.5));
+            background-color: white !important;
+        }
+
         span {
             transition: 300ms ease;
 
@@ -135,7 +140,6 @@ button {
     }
 
     &--close {
-
         &-window {
             --radius: 4px;
             @include padding-x(10px);
