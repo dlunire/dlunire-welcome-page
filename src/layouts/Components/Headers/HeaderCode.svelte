@@ -1,8 +1,10 @@
 <script lang="ts">
+    import IconCircleRight from "../../Icons/IconCircleRight.svelte";
     import IconCopy from "../../Icons/IconCopy.svelte";
     import IconFile from "../../Icons/IconFile.svelte";
+    import type { Component } from "svelte";
 
-    let { title }: { title?: string } = $props();
+    let { title, Icon }: { title?: string; Icon?: Component<Record<string, any>> } = $props();
 
     let copied: boolean = $state<boolean>(false);
 
@@ -28,7 +30,11 @@
 
 <header class="steps__code-header">
     <h4 class="steps__code-title" aria-label="Terminal">
-        <IconFile />
+        {#if Icon}
+            <Icon />
+        {:else}
+            <IconCircleRight />
+        {/if}
         <span>{title ?? "Terminal"}</span>
     </h4>
 

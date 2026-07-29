@@ -64,6 +64,10 @@
                 $dlunire-color,
                 $command-color
             );
+
+            @media screen and (prefers-color-scheme: light) {
+                display: none;
+            }
         }
     }
 
@@ -77,13 +81,17 @@
         align-items: center;
         justify-content: space-between;
         padding: 5px 10px;
-        background-color: rgba($dlunire-color, 0.1);
+        background-color: color-mix(in srgb, var(--dlunire-color), black 20%);
         border-bottom: 1px solid rgba($dlunire-color, 0.3);
-        color: color.adjust($color: $dlunire-color, $lightness: -10%, $saturation: -40%);
+        color: var(--icon-color);
 
         @media screen and (prefers-color-scheme: dark) {
             background-color: rgba(white, 0.03);
             border-bottom: 1px solid rgba(white, 0.1);
+        }
+
+        @media screen and (prefers-color-scheme: light) {
+            // color: white;
         }
     }
 
@@ -92,6 +100,14 @@
 
         font: {
             size: 1rem;
+        }
+    }
+
+    & {
+        @media screen and (prefers-color-scheme: light) {
+            border-color: color-mix(in srgb, var(--dlunire-color), white 10%);
+            box-shadow: 0 0 10px 0 color-mix(in srgb, var(--dlunire-color), transparent);
+            border-bottom-width: 4px;
         }
     }
 }

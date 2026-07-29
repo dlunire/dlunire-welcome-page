@@ -590,7 +590,7 @@
         }
 
         &-title {
-            --icon-size: 15px;
+            --icon-size: 20px;
             --icon-width: var(--icon-size);
             --icon-height: var(--icon-size);
             --icon-color: white;
@@ -758,7 +758,7 @@
 }
 
 .menu {
-    --icon-size: 10px;
+    --icon-size: 15px;
     --icon-width: 3px;
     --icon-height: var(--icon-size);
     --icon-color: white;
@@ -779,6 +779,10 @@
     &__item {
         &:not(:first-of-type) {
             border-top: 1px solid rgba($dlunire-color, 0.2);
+
+            @media screen and (prefers-color-scheme: light) {
+                border-top: 1px solid rgba($dlunire-dark-color, 0.1);
+            }
         }
     }
 
@@ -800,6 +804,16 @@
 
         &:active {
             background-color: rgba($dlunire-color, 0.2);
+        }
+
+        & {
+            @media screen and (prefers-color-scheme: light) {
+                --icon-color: black;
+
+                &:hover {
+                    background-color: rgba($dlunire-dark-color, 0.05);
+                }
+            }
         }
     }
 }
