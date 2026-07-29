@@ -132,4 +132,18 @@ button {
             background-color: rgba($dlunire-color, 0.1);
         }
     }
+
+    &--close {
+
+        &-window {
+            --radius: 4px;
+            @include padding-x(10px);
+            border-color: transparent;
+
+            &:hover {
+                border-color: rgba($dlunire-close, 0.2);
+                background-color: rgba($dlunire-close, 0.6);
+            }
+        }
+    }
 }

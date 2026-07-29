@@ -40,14 +40,6 @@
             </li>
 
             <li class="menu__item">
-                <Link href="#hero" className="menu__link">
-                    {#snippet content()}
-                        <span>Hero</span>
-                    {/snippet}
-                </Link>
-            </li>
-
-            <li class="menu__item">
                 <Link href="#section-api" className="menu__link">
                     {#snippet content()}
                         <span>API</span>

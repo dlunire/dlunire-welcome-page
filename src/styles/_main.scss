@@ -768,7 +768,7 @@
         align-items: center;
         color: inherit;
         transition: 300ms ease;
-        padding: 5px 15px;
+        padding: 7px 15px;
 
         &:hover {
             background-color: rgba($dlunire-color, 0.1);
@@ -796,5 +796,10 @@
 
     &__description {
         padding: 10px 15px;
+    }
+
+    & {
+        background-color: rgba($dlunire-color, 0.05);
+        border-top: 1px solid rgba($dlunire-color, 0.2);
     }
 }

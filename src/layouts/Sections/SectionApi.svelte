@@ -27,10 +27,20 @@
 
 <section class="section section--api" id="section-api">
     <div class="section__inner section__inner--api">
-        <h2 class="section__title section__title--api" aria-label="Diseñado para desarrolladores">
+        <h2
+            class="section__title section__title--api"
+            aria-label="Diseñado para desarrolladores"
+        >
             <IconApi />
             <span>Diseñado para desarrolladores</span>
         </h2>
+
+        <p>
+            Decisiones de diseño orientadas al control absoluto del código: un
+            núcleo modular, un sistema de enrutamiento híbrido que combina
+            autómatas finitos con expresiones regulares, y total libertad de
+            desarrollo sin dependencias opacas.
+        </p>
         <ApiCards {apis} />
     </div>
 </section>
