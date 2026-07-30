@@ -1,7 +1,6 @@
 <script lang="ts">
     import IconCircleRight from "../../Icons/IconCircleRight.svelte";
     import IconCopy from "../../Icons/IconCopy.svelte";
-    import IconFile from "../../Icons/IconFile.svelte";
     import type { Component } from "svelte";
 
     let { title, Icon }: { title?: string; Icon?: Component<Record<string, any>> } = $props();
@@ -44,6 +43,5 @@
         onclick={handleCopy}
     >
         <IconCopy bind:copied />
-        <!-- <span class="button__label">Copiar</span> -->
     </button>
 </header>

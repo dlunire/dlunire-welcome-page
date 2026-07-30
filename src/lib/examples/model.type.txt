@@ -1,0 +1,16 @@
+// Indicador de entorno de producción:
+DL_PRODUCTION: boolean = false
+
+DL_DATABASE_NAME: string = "db_name"
+DL_DATABASE_USER: string = "db_user"
+
+DL_DATABASE_PASSWORD: string = "db_password"
+DL_DATABASE_HOST: string = "localhost"
+DL_DATABASE_PORT: integer = 3306
+DL_DATABASE_COLLATION: string = "utf8_general_ci"
+
+// Motor de base de datos:
+DL_DATABASE_DRIVE: string = "mysql"
+
+// Prefijo de las tablas:
+DL_PREFIX: string = "dl_"

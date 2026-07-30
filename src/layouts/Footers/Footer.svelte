@@ -9,6 +9,8 @@
     import IconLegal from "../Icons/IconLegal.svelte";
     import IconShare from "../Icons/IconShare.svelte";
     import IconX from "../Icons/IconX.svelte";
+    import IconCircleRight from "../Icons/IconCircleRight.svelte";
+    import IconContact from "../Icons/IconContact.svelte";
 </script>
 
 <footer class="footer">
@@ -131,6 +133,24 @@
                     >
                         <IconX />
                     </a>
+                </li>
+            </ul>
+
+            <h4 class="footer__title footer__title--contact" aria-label="Información de contacto">
+                <IconContact />
+                <span>Contacto</span>
+            </h4>
+
+            <ul class="footer__links">
+                <li class="footer__links-item">
+                    <Link
+                        href="mailto:info@dlunire.dev"
+                        className="footer__links-link"
+                    >
+                        {#snippet content()}
+                            <span>info@dlunire.dev</span>
+                        {/snippet}
+                    </Link>
                 </li>
             </ul>
         </nav>

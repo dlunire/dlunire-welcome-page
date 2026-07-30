@@ -1,0 +1,101 @@
+/* ==========================================================================
+   TEMA CLARO (Espejo de alta legibilidad y contraste AAA/AA)
+   ========================================================================== */
+@media (prefers-color-scheme: light) {
+
+    /* ---------------------------------------------------
+       2. CÓDIGO INTERNO (Highlight.js)
+       --------------------------------------------------- */
+    .hljs,
+    .code-command {
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+        display: block;
+        overflow-x: auto;
+
+        /* 0. Puntuación y Metas */
+        .hljs-meta {
+            color: #374151;
+            font-weight: 400;
+        }
+
+        /* 1. Palabras clave (namespace, use, class, extends, public, return) */
+        .hljs-keyword {
+            color: #b91c1c; /* Rojo Sólido 700 */
+            font-weight: 400;
+        }
+
+        /* 1b. Tipos embebidos detectados por Highlight.js */
+        .hljs-built_in {
+            color: #0e7490; /* Cian Océano Profundo */
+            font-weight: 400;
+        }
+
+        /* 2. Cadenas de texto / Strings */
+        .hljs-string {
+            color: #15803d; /* Verde Esmeralda 700 */
+            font-weight: 400;
+        }
+
+        /* 3. Títulos (Namespaces, Clases y Funciones) */
+        .hljs-title {
+            /* SOLUCIÓN: Asignamos el Púrpura Profundo por defecto al nivel raíz.
+               Esto captura clases heredadas como 'BaseController' y tipos como 'array' */
+            color: #581c87 !important;
+            font-weight: 400;
+
+            &.class_,
+            &.class {
+                color: green !important; /* Púrpura profundo para la clase principal */
+            }
+
+            &.function_,
+            &.function {
+                color: #1d4ed8 !important; /* Azul Cobalto exclusivo para métodos/funciones */
+                font-weight: 400;
+            }
+        }
+
+        /* 4. Variables, atributos y propiedades */
+        .hljs-variable {
+            color: #9a3412;
+            font-weight: 400;
+        }
+
+        .hljs-property {
+            color: #7c2d12;
+        }
+
+        .hljs-attr {
+            color: #831843;
+            font-weight: 400;
+        }
+
+        /* 5. Números y booleanos */
+        .hljs-number {
+            color: #1d4ed8; /* Azul Cobalto (igual que funciones) */
+            font-weight: 400;
+        }
+
+        .hljs-literal {
+            color: #115e59;
+            font-weight: 600;
+        }
+
+        /* 6. Comentarios */
+        .hljs-comment {
+            color: #4b5563; /* Slate 600 */
+            font-style: italic;
+        }
+
+        /* 7. Otros tipos o etiquetas genéricas */
+        .hljs-type {
+            color: #0e7490; /* Cian Océano Profundo */
+            font-weight: 400;
+        }
+
+        .hljs-tag {
+            color: #115e59;
+        }
+    }
+}

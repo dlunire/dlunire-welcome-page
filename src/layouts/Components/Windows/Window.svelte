@@ -1,26 +1,34 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount, type Component } from "svelte";
     import IconClose from "../../Icons/IconClose.svelte";
+    import IconDLUnire from "../../Icons/IconDLUnire.svelte";
 
     let {
         content,
+        iconSize,
         open = $bindable<boolean>(),
         windowMenu = false,
         windowModal = false,
         title = $bindable(),
+        Icon = IconDLUnire,
     }: {
         open: boolean;
         windowMenu?: boolean;
         windowModal?: boolean;
         title?: string;
         content?: Function;
+        Icon?: Component<Record<string, any>>;
+        iconSize?: number;
     } = $props();
 
+    let windowWrapperRef: HTMLElement | null = $state<null>(null);
     let windowRef: HTMLElement | null = $state<null>(null);
+    let titleRef: HTMLElement | null = $state<null>(null);
+    let headerRef: HTMLElement | null = $state<null>(null);
 
     onMount(() => {
-        if (!(windowRef instanceof HTMLElement)) return;
-        document.body.appendChild(windowRef);
+        if (!(windowWrapperRef instanceof HTMLElement)) return;
+        document.body.appendChild(windowWrapperRef);
     });
 
     function windowState() {
@@ -30,26 +38,57 @@
             : document.body.style.setProperty("overflow", "auto");
     }
 
-    $effect(() => windowState());
+    $effect(() => {
+        windowState();
+
+        if (titleRef instanceof HTMLElement) {
+            titleRef.style.setProperty("--icon-size", `${iconSize ?? 20}px`);
+        }
+    });
 
     function windowClose() {
         open = false;
     }
+
+    document.addEventListener("click", function (event: MouseEvent) {
+        const { target: element } = event;
+
+        if (!(element instanceof HTMLElement)) return;
+
+        const omit: boolean =
+            element === headerRef ||
+            element === windowRef ||
+            element instanceof HTMLButtonElement;
+
+        if (omit) return;
+
+        const isAnchor: boolean = element instanceof HTMLAnchorElement;
+        const container: HTMLElement | null = element.closest(".window");
+        const isWindow: boolean = container === windowRef;
+
+        if (!isAnchor && isWindow) return;
+
+        windowClose();
+    });
 </script>
 
 {#if open}
     <div
         class="window-container"
         class:window-container--menu={windowMenu}
-        bind:this={windowRef}
+        bind:this={windowWrapperRef}
     >
         <div
             class="window"
             class:window--menu={windowMenu}
             class:window--modal={windowModal}
+            bind:this={windowRef}
         >
-            <header class="window__header">
-                <h2 class="window__title">
+            <header class="window__header" bind:this={headerRef}>
+                <h2 class="window__title" bind:this={titleRef}>
+                    {#if Icon}
+                        <Icon />
+                    {/if}
                     {title ?? "Título por defecto"}
                 </h2>
                 <button

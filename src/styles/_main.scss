@@ -45,8 +45,8 @@
         }
 
         @media screen and (prefers-color-scheme: light) {
-            border: 1px solid rgba($dark-color-theme, 0.1);
-            box-shadow: 2px 2px 20px 2px rgba($dark-color-theme, 0.1);
+            border: 1px solid rgba($dlunire-color, 0.4);
+            box-shadow: 0 0 10px 0 rgba($dlunire-color, 0.3);
         }
     }
 }
@@ -110,11 +110,18 @@
 
         span {
             display: flex;
-            color: var(--icon-color);
         }
 
         &-first {
             color: var(--dlunire-color);
+        }
+
+        &-second {
+            color: white;
+
+            @media screen and (prefers-color-scheme: light) {
+                color: black;
+            }
         }
     }
 
@@ -122,10 +129,15 @@
         margin: 0;
         letter-spacing: 0.4px;
         transition: 300ms ease;
-        color: color-mix(in srgb, var(--dlunire-color) 50%, white 60%);
+        color: color-mix(in srgb, var(--dlunire-color), white 80%);
+
+        @media screen and (prefers-color-scheme: light) {
+            color: color-mix(in srgb, var(--dlunire-color), black 30%);
+        }
 
         font: {
             size: 0.7rem;
+            weight: 400;
         }
     }
 }
@@ -167,6 +179,10 @@
             var(--stop-color-2)
         );
         animation: stop-color 3s infinite;
+
+        @media screen and (prefers-color-scheme: light) {
+            display: none;
+        }
     }
 
     &::before {
@@ -183,7 +199,8 @@
         background-image: none;
         background-color: white;
         box-shadow: 0 0 10px rgba(black, 0.13);
-        border: 1px solid rgba(black, 0.1);
+        border: 1px solid rgba($dlunire-color, 0.5);
+        box-shadow: 0 0 10px 0 rgba($dlunire-color, 0.3);
 
         &::before,
         &::after {
@@ -356,7 +373,7 @@
         border-color: var(--border-color);
         color: #{var(
                 --text-color,
-                color.adjust($color: $green-color, $lightness: 30%)
+                color.adjust($color: $dlunire-color, $lightness: 30%)
             )};
         border-radius: 20px;
         padding: 0 12px;
@@ -370,13 +387,13 @@
         @media screen and (prefers-color-scheme: light) {
             color: #{var(
                     --text-color,
-                    color.adjust($color: $green-color, $lightness: -10%)
+                    color.adjust($color: $dlunire-color, $lightness: -10%)
                 )};
 
-            --background: color-mix(in srgb, var(--text-color), white 90%);
+            --background: white;
             --border-color: color-mix(
                 in srgb,
-                var(--text-color, green),
+                var(--text-color, var(--dlunire-color)),
                 white 65%
             );
         }
@@ -426,10 +443,10 @@
     color: white;
 
     &--color {
-        color: $command-color;
+        color: color-mix(in srgb, $dlunire-color, white 40%);
 
         @media screen and (prefers-color-scheme: light) {
-            color: color.adjust($color: $command-color, $lightness: -30%);
+            color: color.adjust($color: $dlunire-color, $lightness: -10%);
             font: {
                 weight: 500;
             }
@@ -491,7 +508,7 @@
 }
 
 .steps {
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -499,9 +516,16 @@
     border-radius: var(--radius);
     counter-set: item;
 
+    --border-color: #{white};
+    --background: color-mix(in srgb, var(--dlunire-color), black 75%);
+
+    @media screen and (prefers-color-scheme: light) {
+        --border-color: color-mix(in srgb, var(--dlunire-color), white 25%);
+        --background: white;
+    }
+
     &__item {
         --circle-size: 45px;
-        --border-color: #{white};
 
         padding-left: var(--circle-size);
         position: relative;
@@ -558,6 +582,7 @@
         margin: 0;
         border-radius: var(--radius);
         background-color: transparent;
+        overflow: hidden;
 
         $code-color: color.adjust(
             $color: $dlunire-color,
@@ -587,6 +612,10 @@
             border-radius: 0;
             background-color: $code-color;
             border-radius: var(--radius) var(--radius) 0 0;
+
+            @media screen and (prefers-color-scheme: light) {
+                background-color: var(--dlunire-dark-color);
+            }
         }
 
         &-title {
@@ -607,7 +636,6 @@
             gap: 5px;
             line-height: 1;
             color: var(--icon-color);
-            text-transform: uppercase;
 
             font: {
                 weight: 500;
@@ -623,13 +651,12 @@
             box-shadow: 0 0 20px 0 rgba(white, 0.1);
             border-radius: var(--radius);
             background-color: $code-color;
+            // overflow: hidden;
 
             @media screen and (prefers-color-scheme: light) {
-                background-color: color.adjust(
-                    $color: $code-color,
-                    $lightness: 10%,
-                    $saturation: -20%
-                );
+                background-color: white;
+                box-shadow: 0 0 10px 0 rgba($dlunire-color, 0.4);
+                border-color: color-mix(in srgb, var(--dlunire-dark-color) 60%, transparent);
             }
         }
     }
@@ -662,7 +689,7 @@
             height: 1px;
             background-color: color-mix(
                 in srgb,
-                var(--border-color) 20%,
+                var(--background, var(--dlunire-color)) 20%,
                 transparent
             );
         }
@@ -678,12 +705,9 @@
             left: 0;
             width: var(--circle-size);
             height: var(--circle-size);
-            background-color: color.adjust(
-                $color: $dlunire-color,
-                $lightness: -20%
-            );
-            border: 2px solid white;
-            color: white;
+            background-color: var(--background, var(--dlunire-color));
+            border: 2px solid var(--border-color);
+            color: var(--border-color);
             border-radius: calc(var(--circle-size) / 2);
 
             font: {
@@ -694,15 +718,6 @@
             z-index: 2;
         }
     }
-}
-
-.hljs {
-    white-space: pre;
-    margin: 0;
-    background-color: transparent !important;
-    color: white !important;
-    text-align: left;
-    line-height: 1.2;
 }
 
 .api {

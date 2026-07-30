@@ -137,6 +137,14 @@ button {
             border-color: rgba($dlunire-color, 0.6);
             background-color: rgba($dlunire-color, 0.1);
         }
+
+        @media screen and (prefers-color-scheme: light) {
+            --icon-color: white;
+
+            &:hover {
+                border-color: rgba(white, 0.3);
+            }
+        }
     }
 
     &--close {
@@ -148,6 +156,11 @@ button {
             &:hover {
                 border-color: rgba($dlunire-close, 0.2);
                 background-color: rgba($dlunire-close, 0.6);
+
+                @media screen and (prefers-color-scheme: light) {
+                    background-color: $dlunire-close;
+                    border-color: rgba(white, 0.7);
+                }
             }
         }
     }

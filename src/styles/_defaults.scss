@@ -1,6 +1,10 @@
 @use "sass:color";
 @use "./vars" as *;
 
+/* Ejemplo usando un tema predefinido o adaptado */
+@import 'highlight.js/styles/atom-one-dark.css';
+// @import 'highlight.js/styles/ayus.css';
+
 @property --stop-color-1 {
     syntax: "<color>";
     initial-value: $green-color;
@@ -52,12 +56,12 @@
         background-image:
             linear-gradient(
                 0deg,
-                rgba($dark-color-theme, 0.06) 1px,
+                rgba($dark-color-theme, 0.03) 1px,
                 transparent 1px
             ),
             linear-gradient(
                 90deg,
-                rgba($dark-color-theme, 0.06) 1px,
+                rgba($dark-color-theme, 0.03) 1px,
                 transparent 1px
             );
 
@@ -102,8 +106,7 @@ main {
         color-mix(in srgb, var(--dlunire-color) 20%, transparent);
 
     @media screen and (prefers-color-scheme: dark) {
-        scrollbar-color: var(--dlunire-color)
-            color-mix(in srgb, var(--dlunire-color) 10%, transparent);
+        scrollbar-color: var(--dlunire-color) color-mix(in srgb, var(--dlunire-color) 3%, transparent);
     }
 
     &::before,
@@ -122,11 +125,13 @@ a {
 }
 
 pre,
-cod {
+code,
+.monospace {
     font: {
         family: "Cascadia Code", monospace;
     }
 }
+
 code {
     /* @include padding-x(7px); */
     background-color: rgba(black, 0.2);

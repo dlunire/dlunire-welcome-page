@@ -1,10 +1,8 @@
 <script lang="ts">
-    import "highlight.js/styles/atom-one-dark.css"; // o el tema que uses
     import IconQuick from "../Icons/IconQuick.svelte";
     import Code from "../Components/Headers/Code.svelte";
     import installCode from "$lib/examples/quickstart-install.txt?raw";
     import routeCode from "$lib/examples/quickstart-route.txt?raw";
-    import IconArrowRight from "../Icons/IconArrowRight.svelte";
     import IconPHP from "../Icons/IconPHP.svelte";
 </script>
 
@@ -45,7 +43,7 @@
                 >
                     Registra la ruta en el archivo de configuración.
                 </p>
-                <Code code={routeCode.trim()} title="web.php" Icon={IconPHP} />
+                <Code code={routeCode.trim()} title="DLUnire • routes/web.php" Icon={IconPHP} />
             </div>
         </div>
     </div>

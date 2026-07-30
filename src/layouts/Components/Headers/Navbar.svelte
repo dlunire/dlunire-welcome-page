@@ -1,4 +1,5 @@
 <script lang="ts">
+    import IconCircleDown from "../../Icons/IconCircleDown.svelte";
     import IconCircleRight from "../../Icons/IconCircleRight.svelte";
     import IconDLUnire from "../../Icons/IconDLUnire.svelte";
     import ButtonMenu from "../Buttons/ButtonMenu.svelte";
@@ -29,7 +30,13 @@
     </div>
 </nav>
 
-<Window bind:open windowMenu={true} title="Navegación">
+<Window
+    bind:open
+    windowMenu={true}
+    title="Navegación"
+    Icon={IconCircleDown}
+    iconSize={20}
+>
     {#snippet content()}
         <ul class="menu">
             <li class="menu__item">
@@ -54,7 +61,16 @@
                 <Link className="menu__link" href="/#quickstart">
                     {#snippet content()}
                         <IconCircleRight />
-                        <span>QuickStart</span>
+                        <span>Inicio rápido</span>
+                    {/snippet}
+                </Link>
+            </li>
+
+            <li class="menu__item">
+                <Link className="menu__link" href="/#model">
+                    {#snippet content()}
+                        <IconCircleRight />
+                        <span>Uso del modelo</span>
                     {/snippet}
                 </Link>
             </li>

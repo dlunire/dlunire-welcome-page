@@ -1,0 +1,87 @@
+@use "sass:color";
+@use "./vars" as *;
+
+@property --dlunire-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: $dlunire-color;
+}
+
+@media (prefers-color-scheme: dark) {
+    .hljs, .code-command {
+        background-color: #010305 !important;
+        color: white;
+    }
+    .code-command {
+        display: block;
+        overflow-x: auto;
+
+        /* 0. Etiquetas Meta (como <?php) */
+        .hljs-meta {
+            color: #a1a1a1;
+        }
+
+        /* 1. Palabras clave */
+        .hljs-keyword {
+            color: #ff6d00; /* Naranja Fuego */
+            font-weight: 700;
+        }
+
+        /* 2. Cadenas de texto / Strings */
+        .hljs-string {
+            color: #76ff03; /* Verde Neón */
+        }
+
+        /* 3. Títulos (Namespaces, Clases y Funciones) */
+        .hljs-title {
+            color: #f8f8f2;
+
+            &.class_,
+            &.class {
+                color: color-mix(in srgb, var(--dlunire-color), white 60%);
+            }
+
+            &.function_,
+            &.function {
+                color: #00e5ff; /* Cian Eléctrico */
+            }
+        }
+
+        /* 4. Variables, atributos y propiedades (SEPARADOS) */
+        .hljs-variable {
+            color: #ff1744; /* Rojo Vivo */
+        }
+
+        .hljs-property {
+            color: #ff9100; /* Naranja Ámbar Brillante */
+        }
+
+        .hljs-attr {
+            color: #f50057; /* Rosa Neón / Magenta Brillante */
+        }
+
+        /* 5. Números y booleanos (SEPARADOS) */
+        .hljs-number {
+            color: #e040fb; /* Púrpura Eléctrico */
+        }
+
+        .hljs-literal {
+            color: #7c4dff; /* Azul Violáceo Profundo */
+        }
+
+        /* 6. Comentarios */
+        .hljs-comment {
+            color: #8e9eab; /* Gris azulado (para separarlo un poco del blanco puro) */
+            font-style: italic;
+        }
+
+        /* 7. Otros tipos o etiquetas genéricas (SEPARADOS) */
+        .hljs-type {
+            color: #ffea00; /* Amarillo Neón */
+        }
+
+        .hljs-tag {
+            color: #1de9b6; /* Turquesa Brillante */
+        }
+    }
+}

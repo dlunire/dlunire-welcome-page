@@ -1,0 +1,11 @@
+<?php
+namespace DLUnire\Models;
+
+use DLCore\Database\Model;
+
+/**
+ * Modelo para la tabla `products` (o `dl_products` con `DL_PREFIX: string = "dl_"` en `.env.type`).
+ *
+ * El nombre de la tabla se infiere automáticamente a partir del nombre de la clase.
+ */
+final class Products extends Model {}

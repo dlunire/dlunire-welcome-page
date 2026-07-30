@@ -1,6 +1,6 @@
 <!-- Code.svelte -->
 <script lang="ts">
-    import type { Component, SvelteComponent } from "svelte";
+    import type { Component } from "svelte";
     import { highlight } from "../../../lib/action/highlight";
     import HeaderCode from "./HeaderCode.svelte";
     let {

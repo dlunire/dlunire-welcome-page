@@ -115,11 +115,16 @@
                 }
             }
         }
+
+        &--model {
+            --icon-size: 30px;
+        }
     }
 }
 
 .footer {
-    background-color: $dlunire-secondary-color;
+    background-color: color-mix(in oklab, var(--dlunire-dark-color), black 40%);
+    filter: grayscale(0.4);
     color: white;
     border-top: 1px solid transparent;
     overflow: hidden;
@@ -136,6 +141,7 @@
             $lightness: -4%
         );
         border-top: 1px solid rgba(white, 0.07);
+        filter: grayscale(0);
     }
 
     &__container {
@@ -241,7 +247,7 @@
         &::before {
             content: "";
             height: 1px;
-            background-color: color-mix(in srgb, var(--icon-color), black 50%);
+            background-color: color-mix(in srgb, var(--dlunire-color), black 50%);
 
             position: absolute;
             margin: auto;
@@ -250,11 +256,16 @@
             bottom: -5px;
             width: 80%;
         }
+
+        &--contact {
+            --icon-size: 17px;
+        }
     }
 
     &__links {
         margin: 0;
-        padding-left: 0;
+        padding-left: 10px;
+        margin-right: 10px;
         list-style: none;
 
         &-item {
