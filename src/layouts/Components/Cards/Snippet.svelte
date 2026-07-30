@@ -45,6 +45,16 @@
             </button>
         </div>
 
-        <div class="snippet__body-info"></div>
+        <div class="snippet__body-info snippet__body-info--columns">
+            <div class="snippet__body-column">
+                <h4 class="snippet__body-title">Kernel</h4>
+                <p>DLCore ^2.1</p>
+            </div>
+
+            <div class="snippet__body-column">
+                <h4 class="snippet__body-title">Incluye</h4>
+                <p>DLRoute • DLStorage</p>
+            </div>
+        </div>
     </div>
 </div>

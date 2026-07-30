@@ -48,9 +48,7 @@
                 <li class="tag__item">API / JSON</li>
                 <li class="tag__item">ORM</li>
                 <li class="tag__item tag__item--light">Rutas HTTP</li>
-                <li class="tag__item tag__item--command">
-                    <code>.env.type</code>
-                </li>
+                <li class="tag__item tag__item--command">.env.type</li>
                 <li class="tag__item tag__item--primary">Credenciales</li>
                 <li class="tag__item tag__item--light">Project::run()</li>
             </ul>

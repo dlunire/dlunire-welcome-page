@@ -8,10 +8,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .hljs, .code-command {
+    .hljs,
+    .code-command {
         background-color: #010305 !important;
         color: white;
     }
+    .hljs,
     .code-command {
         display: block;
         overflow-x: auto;
@@ -34,16 +36,18 @@
 
         /* 3. Títulos (Namespaces, Clases y Funciones) */
         .hljs-title {
-            color: #f8f8f2;
+            &[class="hljs-title"] {
+                color: #00ff9d;
+            }
 
             &.class_,
             &.class {
-                color: color-mix(in srgb, var(--dlunire-color), white 60%);
+                color: color-mix(in srgb, var(--dlunire-color), white 100%);
             }
 
             &.function_,
             &.function {
-                color: #00e5ff; /* Cian Eléctrico */
+                color: #00e5ff !important; /* Cian Eléctrico */
             }
         }
 
@@ -62,11 +66,11 @@
 
         /* 5. Números y booleanos (SEPARADOS) */
         .hljs-number {
-            color: #e040fb; /* Púrpura Eléctrico */
+            color: #faa859;
         }
 
         .hljs-literal {
-            color: #7c4dff; /* Azul Violáceo Profundo */
+            color: #b094ff; /* Azul Violáceo Profundo */
         }
 
         /* 6. Comentarios */
@@ -77,7 +81,7 @@
 
         /* 7. Otros tipos o etiquetas genéricas (SEPARADOS) */
         .hljs-type {
-            color: #ffea00; /* Amarillo Neón */
+            color: #ffea00 !important; /* Amarillo Neón */
         }
 
         .hljs-tag {

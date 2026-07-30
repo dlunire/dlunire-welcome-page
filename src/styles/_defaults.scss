@@ -2,7 +2,7 @@
 @use "./vars" as *;
 
 /* Ejemplo usando un tema predefinido o adaptado */
-@import 'highlight.js/styles/atom-one-dark.css';
+@import "highlight.js/styles/atom-one-dark.css";
 // @import 'highlight.js/styles/ayus.css';
 
 @property --stop-color-1 {
@@ -81,6 +81,16 @@ body {
 
 main {
     min-height: 100vh;
+
+    background-image: radial-gradient(
+        farthest-corner,
+        color-mix(in oklab, var(--dlunire-color) 20%, black 90%),
+        transparent
+    );
+
+    @media screen and (prefers-color-scheme: light) {
+        background-image: none;
+    }
 }
 
 @supports (height: 100dvh) {
@@ -106,7 +116,8 @@ main {
         color-mix(in srgb, var(--dlunire-color) 20%, transparent);
 
     @media screen and (prefers-color-scheme: dark) {
-        scrollbar-color: var(--dlunire-color) color-mix(in srgb, var(--dlunire-color) 3%, transparent);
+        scrollbar-color: var(--dlunire-color)
+            color-mix(in srgb, var(--dlunire-color) 3%, transparent);
     }
 
     &::before,
