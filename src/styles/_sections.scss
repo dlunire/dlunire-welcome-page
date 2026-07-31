@@ -24,6 +24,7 @@
     &,
     &__inner {
         position: relative;
+        width: 100%;
 
         &--quickstart {
             max-width: 950px;
@@ -51,6 +52,7 @@
 
     &__column {
         /* @include padding-x(40px); */
+        min-width: 0;
 
         &:last-of-type {
             display: flex;

@@ -23,6 +23,11 @@
             pointer-events: none;
             user-select: none;
             padding-right: 30px;
+
+            @media screen and (max-width: 500px) {
+                padding-right: 0;
+                top: var(--header-height);
+            }
         }
     }
 
@@ -39,6 +44,7 @@
         border: 1px solid rgba($dlunire-color, 0.3);
         overflow: hidden;
         background-color: white;
+        max-height: calc(100vh - var(--header-height));
 
         @media screen and (prefers-color-scheme: dark) {
             $color: color.adjust(
@@ -49,6 +55,12 @@
             background-color: rgba($color, 1);
             border-color: rgba(white, 0.2);
             box-shadow: 0 0 10px 0 rgba(white, 0.1);
+        }
+
+        @media screen and (max-width: 500px) {
+            @include margin-x(auto);
+            max-width: unset;
+            border-radius: 0;
         }
 
         &::before {
@@ -92,6 +104,13 @@
 
         @media screen and (prefers-color-scheme: light) {
             // color: white;
+        }
+
+        &--menu {
+
+            @media screen and (max-width: 500px) {
+                display: none;
+            }
         }
     }
 

@@ -36,6 +36,11 @@
         open
             ? document.body.style.setProperty("overflow", "hidden")
             : document.body.style.setProperty("overflow", "auto");
+
+        if (headerRef instanceof HTMLElement) {
+            const height = headerRef.getBoundingClientRect().height;
+            windowRef?.style.setProperty("--header-height", `${height}px`);
+        }
     }
 
     $effect(() => {
@@ -84,7 +89,10 @@
             class:window--modal={windowModal}
             bind:this={windowRef}
         >
-            <header class="window__header" bind:this={headerRef}>
+            <header
+                class="window__header"
+                bind:this={headerRef}
+            >
                 <h2 class="window__title" bind:this={titleRef}>
                     {#if Icon}
                         <Icon />

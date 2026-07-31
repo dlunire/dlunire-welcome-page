@@ -10,6 +10,12 @@
 
         open = !open;
         button.dataset.menu = String(open);
+
+        const header: HTMLElement | null = button.closest("header");
+        if (!(header instanceof HTMLElement)) return;
+
+        const rect = header.getBoundingClientRect();
+        document.body.style.setProperty("--header-height", `${rect.height}px`);
     }
 
     $effect(() => {
