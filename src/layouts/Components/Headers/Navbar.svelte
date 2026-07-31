@@ -86,7 +86,7 @@
             </li>
 
             <li class="menu__item">
-                <Link className="menu__link" href="/#footer">
+                <Link className="menu__link" href="#footer">
                     {#snippet content()}
                         <IconLegal />
                         <span>Contenido legal</span>
