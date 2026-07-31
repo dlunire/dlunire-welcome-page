@@ -43,7 +43,7 @@
                 >
                     Registra la ruta en el archivo de configuración.
                 </p>
-                <Code code={routeCode.trim()} title="DLUnire • routes/web.php" Icon={IconPHP} />
+                <Code code={routeCode.trim()} title="DLUnire • /routes/web.php" Icon={IconPHP} />
             </div>
         </div>
     </div>
