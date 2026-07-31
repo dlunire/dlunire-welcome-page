@@ -13,4 +13,18 @@ export default defineConfig({
             $lib: path.resolve(__dirname, "./src/lib"),
         },
     },
+    build: {
+        rollupOptions: {
+            output: {
+                // Genera el archivo principal de entrada sin hash (ej. index.js)
+                entryFileNames: "assets/[name].js",
+
+                // Genera los fragmentos de código separados sin hash
+                chunkFileNames: "assets/[name].js",
+
+                // Genera los estilos y otros recursos sin hash (ej. index.css, logo.svg)
+                assetFileNames: "assets/[name].[ext]",
+            },
+        },
+    },
 });
