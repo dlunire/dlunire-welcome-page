@@ -65,8 +65,6 @@
 
         const url: URL = new URL(dlroute.asset(href));
 
-        console.log({ url });
-
         const isSame: boolean = isSameRoute(href);
         if (isSame && url.hash.trim()) return;
 
