@@ -15,6 +15,7 @@
             MainComponent = NotFound;
             return;
         }
+
         MainComponent = dispatch.component as Component<Record<string, any>>;
         tickScroll();
     });
