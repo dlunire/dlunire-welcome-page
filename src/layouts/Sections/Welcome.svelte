@@ -1,5 +1,4 @@
 <script>
-    import Footer from "../Footers/Footer.svelte";
     import Content from "./Content.svelte";
     import Hero from "./Hero.svelte";
     import QuickStart from "./QuickStart.svelte";
@@ -15,4 +14,3 @@
         <Model />
     {/snippet}
 </Content>
-<Footer />

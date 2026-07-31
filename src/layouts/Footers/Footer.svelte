@@ -1,6 +1,4 @@
 <script lang="ts">
-    import * as engine from "@dlunire/front-dlroute";
-
     import Link from "../Components/Links/Link.svelte";
     import IconDLUnire from "../Icons/IconDLUnire.svelte";
     import IconEcosystem from "../Icons/IconEcosystem.svelte";
@@ -9,11 +7,9 @@
     import IconLegal from "../Icons/IconLegal.svelte";
     import IconShare from "../Icons/IconShare.svelte";
     import IconX from "../Icons/IconX.svelte";
-    import IconCircleRight from "../Icons/IconCircleRight.svelte";
-    import IconContact from "../Icons/IconContact.svelte";
 </script>
 
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer__container">
         <div class="footer__brand">
             <Link href="/#home" className="footer__logo">
@@ -80,21 +76,25 @@
             </h4>
             <ul class="footer__links">
                 <li class="footer__links-item">
-                    <Link href="/terms" className="footer__links-link">
+                    <Link href="/terms#home" className="footer__links-link">
                         {#snippet content()}
-                            Términos del Servicio
+                            <span>Términos del Servicio</span>
                         {/snippet}
                     </Link>
                 </li>
                 <li class="footer__links-item">
-                    <a href="/privacidad" class="footer__links-link"
-                        >Política de Privacidad</a
-                    >
+                    <Link href="/privacy#home" className="footer__links-link">
+                        {#snippet content()}
+                            <span>Política de Privacidad</span>
+                        {/snippet}
+                    </Link>
                 </li>
                 <li class="footer__links-item">
-                    <a href="/cookies" class="footer__links-link"
-                        >Política de Cookies</a
-                    >
+                    <Link href="/cookies#home" className="footer__links-link">
+                        {#snippet content()}
+                            <span>Política de Cookies</span>
+                        {/snippet}
+                    </Link>
                 </li>
             </ul>
         </nav>

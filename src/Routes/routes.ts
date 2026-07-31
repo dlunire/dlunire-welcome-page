@@ -1,6 +1,9 @@
 import * as engine from "@dlunire/front-dlroute";
 import NotFound from "../layouts/Components/NotFounds/NotFound.svelte";
 import Welcome from "../layouts/Sections/Welcome.svelte";
+import License from "../layouts/Components/Legal/License.svelte";
+import Privacy from "../layouts/Components/Legal/Privacy.svelte";
+import Cookie from "../layouts/Components/Legal/Cookie.svelte";
 
 export type Dispatch = engine.Dispatch;
 
@@ -11,6 +14,9 @@ export type Dispatch = engine.Dispatch;
  */
 function registerRoute(): void {
     engine.route("/", Welcome);
+    engine.route("/terms", License);
+    engine.route('/privacy', Privacy);
+    engine.route('/cookies', Cookie);
 }
 
 /**

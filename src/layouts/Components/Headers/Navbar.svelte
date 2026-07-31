@@ -2,6 +2,8 @@
     import IconCircleDown from "../../Icons/IconCircleDown.svelte";
     import IconCircleRight from "../../Icons/IconCircleRight.svelte";
     import IconDLUnire from "../../Icons/IconDLUnire.svelte";
+    import IconLegal from "../../Icons/IconLegal.svelte";
+    import IconSection from "../../Icons/IconSection.svelte";
     import ButtonMenu from "../Buttons/ButtonMenu.svelte";
     import Link from "../Links/Link.svelte";
     import Window from "../Windows/Window.svelte";
@@ -38,6 +40,14 @@
     iconSize={20}
 >
     {#snippet content()}
+        <div class="navigation">
+            <div class="navigation__description">
+                <h2 class="navigation__title">
+                    <IconSection />
+                    <span>Navegación entre secciones</span>
+                </h2>
+            </div>
+        </div>
         <ul class="menu">
             <li class="menu__item">
                 <Link className="menu__link" href="/#home">
@@ -74,15 +84,19 @@
                     {/snippet}
                 </Link>
             </li>
+
+            <li class="menu__item">
+                <Link className="menu__link" href="/#footer">
+                    {#snippet content()}
+                        <IconLegal />
+                        <span>Contenido legal</span>
+                    {/snippet}
+                </Link>
+            </li>
         </ul>
 
         <div class="navigation">
-            <div class="navigation__description">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Reprehenderit, voluptatibus?
-                </p>
-            </div>
+            <div class="navigation__description"></div>
         </div>
     {/snippet}
 </Window>

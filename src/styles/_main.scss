@@ -247,10 +247,6 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
-
-                @media screen and (max-width: 500px) {
-                    grid-template-columns: 1fr;
-                }
             }
         }
 
@@ -877,8 +873,13 @@
         padding: 10px 15px;
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 10px;
         line-height: 1.1;
+
+        --icon-size: 15px;
+        --icon-width: var(--icon-size);
+        --icon-height: var(--icon-size);
+        --icon-color: white;
 
         &:hover {
             background-color: rgba($dlunire-color, 0.1);
@@ -887,6 +888,11 @@
 
         &:active {
             background-color: rgba($dlunire-color, 0.2);
+        }
+
+        & > * {
+            pointer-events: none;
+            user-select: none;
         }
 
         & {
@@ -905,6 +911,7 @@
     position: relative;
     flex-grow: 1;
     scroll-margin-top: var(--header-height);
+    animation: 300ms ease window-open forwards;
 }
 
 .navigation {
@@ -912,14 +919,49 @@
     &__inner,
     &__description {
         position: relative;
+
+        font: {
+            size: 0.95rem;
+        }
+    }
+
+    &__title {
+        --icon-size: 20px;
+        --icon-width: var(--icon-size);
+        --icon-height: var(--icon-size);
+        --icon-color: white;
+
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        font: {
+            size: 0.9rem;
+        }
+
+        @media screen and (prefers-color-scheme: light) {
+            --icon-color: black;
+        }
+    }
+
+    p {
+        margin: 0;
     }
 
     &__description {
         padding: 10px 15px;
+        border-bottom: 1px solid
+            color-mix(in srgb, var(--dlunire-color) 30%, transparent);
     }
 
     & {
-        background-color: rgba($dlunire-color, 0.05);
-        border-top: 1px solid rgba($dlunire-color, 0.2);
+        background-color: color-mix(
+            in srgb,
+            var(--dlunire-color) 10%,
+            transparent
+        );
+        border-top: 1px solid
+            color-mix(in srgb, var(--dlunire-color) 10%, transparent);
     }
 }
