@@ -1,5 +1,4 @@
-// highlight.ts
-import hljs from "highlight.js";
+import hljs from "../../lib/highlight.js"
 
 export function dedent(code: string): string {
     const lines = code
@@ -31,3 +30,5 @@ export function highlight(node: HTMLElement, code: string) {
         },
     };
 }
+
+export default hljs;

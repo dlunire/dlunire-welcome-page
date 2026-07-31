@@ -15,9 +15,10 @@
         Array.isArray(values) ? values.join("; ") : "#0080ff; #ff6c00",
     );
 
+    // Se copia el arreglo con [...values] para evitar mutar la variable original con reverse()
     let stopValuesB: string = $derived(
         Array.isArray(values)
-            ? values.reverse().join("; ")
+            ? [...values].reverse().join("; ")
             : "#ff6c00; #0080ff",
     );
 </script>
@@ -49,10 +50,9 @@
 <div class={className}>
     <svg class="border-svg" preserveAspectRatio="none">
         <rect
+            class="animated-rect"
             x="2"
             y="2"
-            width="calc(100% - 4px)"
-            height="calc(100% - 4px)"
             rx="12"
             fill="none"
             stroke="url(#brandGradient)"
@@ -78,6 +78,11 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
+    }
+    /* El calc() se traslada aquí para ser válido según el estándar del DOM */
+    .animated-rect {
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
     }
     .content {
         position: relative;
