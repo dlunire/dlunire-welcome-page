@@ -37,3 +37,15 @@ export function init(): Dispatch {
 
     return dispatch;
 }
+
+console.log({ test: init, algo: "string", booleano: false });
+class Ciencia {
+    constructor() {}
+
+    public getString(): string {
+        return "string";
+    }
+}
+
+const ciencia = new Ciencia();
+let value: string = ciencia.getString();

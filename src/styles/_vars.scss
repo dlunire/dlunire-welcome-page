@@ -41,3 +41,7 @@ $dlunire-cart-text-color: color.adjust($color: $dlunire-cart-color, $lightness: 
     margin-top: $margin;
     margin-bottom: $margin;
 }
+
+@function name($padding: 0) {
+    @return $padding;
+}
