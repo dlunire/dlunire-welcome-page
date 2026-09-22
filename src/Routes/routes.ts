@@ -38,7 +38,6 @@ export function init(): Dispatch {
     return dispatch;
 }
 
-console.log({ test: init, algo: "string", booleano: false });
 class Ciencia {
     constructor() {}
 
