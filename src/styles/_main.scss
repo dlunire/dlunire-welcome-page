@@ -979,3 +979,28 @@
             color-mix(in srgb, var(--dlunire-color) 10%, transparent);
     }
 }
+
+.link {
+    color: var(--link-color, #00ff00);
+    transition: 300ms ease color;
+
+    &--model {
+        
+        &:hover {
+            text-decoration: underline;
+            color: #30ffaa;
+        }
+
+        &:active {
+            opacity: 0.7;
+        }
+
+        &:visited {
+            color: orange;
+        }
+
+        @media screen and (prefers-color-scheme: light) {
+            filter: invert(1);
+        }
+    }
+}
