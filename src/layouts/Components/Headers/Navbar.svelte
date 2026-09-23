@@ -8,7 +8,8 @@
     import Link from "../Links/Link.svelte";
     import Window from "../Windows/Window.svelte";
 
-    let open: boolean = false;
+    let open: boolean = $state<boolean>(false);
+    let navigation: HTMLElement[] = $state([]);
 </script>
 
 <nav class="header__nav">
@@ -38,9 +39,10 @@
     title="Navegación"
     Icon={IconCircleDown}
     iconSize={20}
+    bind:navigation
 >
     {#snippet content()}
-        <div class="navigation">
+        <div class="navigation" bind:this={navigation[0]}>
             <div class="navigation__description">
                 <h2 class="navigation__title">
                     <IconSection />
@@ -48,6 +50,7 @@
                 </h2>
             </div>
         </div>
+
         <ul class="menu">
             <li class="menu__item">
                 <Link className="menu__link" href="/#home">
@@ -95,8 +98,8 @@
             </li>
         </ul>
 
-        <div class="navigation">
+        <!-- <div class="navigation" bind:this={navigation[1]}>
             <div class="navigation__description"></div>
-        </div>
+        </div> -->
     {/snippet}
 </Window>

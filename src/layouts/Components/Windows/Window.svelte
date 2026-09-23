@@ -2,6 +2,7 @@
     import { onMount, type Component } from "svelte";
     import IconClose from "../../Icons/IconClose.svelte";
     import IconDLUnire from "../../Icons/IconDLUnire.svelte";
+    import Header from "../Headers/Header.svelte";
 
     let {
         content,
@@ -11,8 +12,10 @@
         windowModal = false,
         title = $bindable(),
         Icon = IconDLUnire,
+        navigation = $bindable<HTMLElement[]>([]),
     }: {
         open: boolean;
+        navigation: HTMLElement[];
         windowMenu?: boolean;
         windowModal?: boolean;
         title?: string;
@@ -25,6 +28,9 @@
     let windowRef: HTMLElement | null = $state<null>(null);
     let titleRef: HTMLElement | null = $state<null>(null);
     let headerRef: HTMLElement | null = $state<null>(null);
+
+    // Variables que no son elementos HTML o componentes:
+    let navigationHeight: number = 0;
 
     onMount(() => {
         if (!(windowWrapperRef instanceof HTMLElement)) return;
@@ -75,6 +81,84 @@
 
         windowClose();
     });
+
+    let windowContainer: HTMLElement | null = $state(null);
+
+    interface Container {
+        menuHeight: string;
+        headerHeight: string;
+    }
+
+    $effect(() => {
+        let observer: ResizeObserver | null = null;
+
+        if (
+            !(windowContainer instanceof HTMLElement) ||
+            navigation.length < 1 ||
+            !(windowRef instanceof HTMLElement)
+        )
+            return;
+
+        // menuHeight = rect.height - navigation;
+        // windowContainer.style.setProperty("--menu-height", `${menuHeight}px`);
+
+        /**
+         * Carga los datos de tamaño de los elementos en cuanto se haya terminado la animación
+         * del contenedor.
+         *
+         * @returns
+         */
+        function animationEnd(event: AnimationEvent): void {
+            const { target: container } = event;
+            if (!(container instanceof HTMLElement)) return;
+
+            observer = new ResizeObserver(() => {
+                if (
+                    !(windowContainer instanceof HTMLElement) ||
+                    !(headerRef instanceof HTMLElement)
+                )
+                    return;
+
+                let height: number = 0;
+
+                for (const element of navigation) {
+                    if (!(element instanceof HTMLElement)) continue;
+                    height += element.getBoundingClientRect().height;
+                }
+
+                const mainHeight: number =
+                    container.getBoundingClientRect().height;
+
+                const headerHeight: number =
+                    headerRef.getBoundingClientRect().height;
+
+                const containerHeight: number = mainHeight - headerHeight;
+
+                console.log({ height, containerHeight, headerHeight });
+
+                windowContainer.style.setProperty(
+                    "--menu-height",
+                    `${containerHeight - height}px`,
+                );
+
+                windowContainer.style.setProperty(
+                    "--header-height",
+                    `${containerHeight}px`,
+                );
+            });
+
+            observer.observe(container);
+        }
+
+        windowRef.addEventListener("animationend", animationEnd, {
+            once: true,
+        });
+
+        return () => {
+            windowRef?.removeEventListener("animationend", animationEnd);
+            observer?.disconnect();
+        };
+    });
 </script>
 
 {#if open}
@@ -89,10 +173,7 @@
             class:window--modal={windowModal}
             bind:this={windowRef}
         >
-            <header
-                class="window__header"
-                bind:this={headerRef}
-            >
+            <header class="window__header" bind:this={headerRef}>
                 <h2 class="window__title" bind:this={titleRef}>
                     {#if Icon}
                         <Icon />
@@ -110,7 +191,7 @@
             <!-- {#if !windowMenu}
             {/if} -->
 
-            <div class="window__container">
+            <div class="window__container" bind:this={windowContainer}>
                 {#if content}
                     {@render content()}
                 {/if}

@@ -4,6 +4,8 @@
 .window {
     position: relative;
     animation: 300ms ease window-open forwards;
+    overflow-y: auto;
+    height: 350px;
 
     &-container {
         position: fixed;
@@ -61,6 +63,7 @@
             @include margin-x(auto);
             max-width: unset;
             border-radius: 0;
+            border: 0;
         }
 
         &::before {
@@ -112,6 +115,14 @@
                 display: none;
             }
         }
+    }
+
+    &__container {
+        --header-height: auto;
+        position: relative;
+        height: var(--header-height, auto);
+        overflow: hidden;
+        transition: 300ms ease height;
     }
 
     &__title {

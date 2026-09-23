@@ -693,11 +693,19 @@
             gap: 5px;
             line-height: 1;
             color: var(--icon-color);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             font: {
                 weight: 500;
                 size: 0.8rem;
                 family: "Cascadia Code", monospace;
+            }
+
+            span {
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }
 
@@ -845,6 +853,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    overflow-y: auto;
+    height: var(--menu-height);
 
     font: {
         size: 0.9rem;
