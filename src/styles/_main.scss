@@ -665,7 +665,7 @@
             justify-content: space-between;
             color: white;
             position: sticky;
-            top: var(--header-height);
+            top: calc(var(--header-height) + 10px);
             border-radius: 0;
             background-color: $code-color;
             border-radius: var(--radius) var(--radius) 0 0;
@@ -726,6 +726,10 @@
                     var(--dlunire-dark-color) 60%,
                     transparent
                 );
+            }
+
+            @media screen and (max-width: 550px) {
+                --radius: 3px;
             }
         }
     }
