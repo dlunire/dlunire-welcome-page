@@ -1,8 +1,11 @@
 main:
-	pnpm dev
+	bun dev
 
 build:
-	pnpm build
+	bun run build
 
 compiler:
 	./builders.sh
+
+publish:
+	dlunire publish ./dist/ /srv/aplicaciones/libs/main

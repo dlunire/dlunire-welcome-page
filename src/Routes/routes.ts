@@ -37,14 +37,3 @@ export function init(): Dispatch {
 
     return dispatch;
 }
-
-class Ciencia {
-    constructor() {}
-
-    public getString(): string {
-        return "string";
-    }
-}
-
-const ciencia = new Ciencia();
-let value: string = ciencia.getString();
